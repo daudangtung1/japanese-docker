@@ -24,3 +24,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('authorized/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
 Route::get('authorized/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback']);
+
+//Route::get('authorized/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback']);
