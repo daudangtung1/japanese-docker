@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginWithGoogleController;
+use Illuminate\Support\Facades\App;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +16,7 @@ use App\Http\Controllers\LoginWithGoogleController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
+//
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -25,4 +24,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('authorized/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
 Route::get('authorized/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback']);
 
-//Route::get('authorized/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback']);
+/*index page*/
+Route::get('/{lang}', [LanguageController::class, 'switchLang'])->name('language');
+Route::get('/', [IndexController::class, 'index']);

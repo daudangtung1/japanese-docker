@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'jp',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'jp',
 
     /*
     |--------------------------------------------------------------------------
@@ -230,5 +230,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+
+    'languages' => [
+        'en' => 'English',
+        'ja' => '日本語',
+    ]
 
 ];
