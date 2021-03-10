@@ -527,6 +527,8 @@
                         </div>
                     </div>
                 </div>
+                <h1>TEST TRANG CHU</h1>
+                <div class="bg-gray-50">I can't believe it's not white.</div>
             </div>
         </div>
 
