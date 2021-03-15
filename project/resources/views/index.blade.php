@@ -1,37 +1,102 @@
-@extends('layouts.master')
-@section('title', 'Homepage')
-@section('main')
-    <div class="banner">
-        <h1 style="font-size: 32px">KHO ĐỀ THI TIẾNG NHẬT </h1>
-        <div class="flex flex-row">
-            <div class="data-item">
-                <span>3930</span> "+" <i>Thành viên</i>
-            </div>
-            <div class="data-item">
-                <span>999</span> "+" <i>Đề thi</i>
-            </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            font-size: 14px;
+        }
+        @font-face{
+            font-family:"Roboto-Regular";
+            src: url('resources/font/Roboto-Regular.ttf') format("truetype");
+        }
+        .banner{
+            background-image: url('resources/img/bg-slide-1.jpg');
+        }
+
+        .main-homepage--content{
+            background-color: gray;
+        }
+
+        .crossbar-exam{
+            background-color: #e8e8e8;
+            height: 2px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .color-bar{
+            background-color: #f00;
+            width: 60px;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="banner text-center p-12 text-white">
+    <h1 class="text-4xl pb-4">KHO ĐỀ THI TIẾNG NHẬT</h1>
+    <div class="flex flex-row justify-center">
+        <div class="data-item pr-7">
+            <span class="text-xl">3930</span> "+" <i class="not-italic">Thành viên</i>
+        </div>
+        <div class="data-item">
+            <span class="text-xl">999</span> "+" <i class="not-italic">Đề thi</i>
         </div>
     </div>
-    <div class="main-content-homepage bg-gray-100">
-        <div class="grid grid-cols-2 gap-4">
-            <div class="main-content--exam">
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-white rounded-md py-2 px-4">
-                        <h3>
-                            <a href=""> Đề thi trình độ N3 - Chủ Nhật #8204</a>
-                        </h3>
-                        <div class="status-exam"></div>
-                        <div class="member"></div>
+</div>
+<section class="main-homepage--content">
+    <div class="grid grid-cols-3 gap-4">
+        <div class="col-span-2">
+            <div class="main-homepage--exam">
+                <div class=" main-homepage--online">
+                    <div class="title--exam">
+                        <h2 class="text-2xl">Đề thi online</h2>
+                        <div class="flex justify-between title-explain">
+                            <h6>Đề thi online, giới hạn thời gian thi</h6>
+                            <a href="">Xem tất cả</a>
+                        </div>
+                        <div class="crossbar-exam">
+                            <div class="color-bar"></div>
+                        </div>
                     </div>
-                    <div class="bg-red-200">block2</div>
-                    <div class="bg-red-200">block3</div>
-                    <div class="bg-red-200">block4</div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white py-2 px-4 rounded-md item">
+                            <a href="">
+                                <h3>Đề thi trình độ N3 - Chủ Nhật #8204</h3>
+                            </a>
+                            <div class="status-exam">
+									<span>
+										<span></span>
+									</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-home-instrict">
+                    Đề thi JLPT các năm
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-blue-200">1</div>
+                        <div class="bg-blue-200">1</div>
+                        <div class="bg-blue-200">1</div>
+                        <div class="bg-blue-200">1</div>
+                        <div class="bg-blue-200">1</div>
+                    </div>
                 </div>
             </div>
-
-            <div class="grid grid-cols-2 gap-4">
-                <div class="bg-blue-800">One of three columns</div>
-            </div>
         </div>
+        <div class="adv bg-red-200"> div 2</div>
     </div>
-@endsection
+    </div>
+</section>
+</body>
+</html>
