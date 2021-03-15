@@ -16,8 +16,28 @@
       <executable />
     </execution>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="japanese" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpDebugGeneral" xdebug_debug_port="9003" listening_started="true" show_pre_config_in_remote_debug="false" />
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="a300b113-5f42-4920-b7ae-ce4d92901b32" name="test" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/project" remote-root="var/www" />
+        </path_mappings>
+      </server>
+    </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -147,12 +167,15 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\docker\japanese\project\public\font" />
       <recent name="E:\docker\japanese\project" />
       <recent name="C:\Users\Admin\Desktop\docker\project" />
     </key>
@@ -175,24 +198,19 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="docker-compose.yml.app: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="app" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
+    <configuration name="Unnamed" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" nameIsGenerated="true" filter_connections="FILTER" server_name="test" session_id="PHPSTORM">
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Docker.docker-compose.yml.app: Compose Deployment" />
-      </list>
-    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -209,6 +227,11 @@
       <workItem from="1615259835166" duration="22312000" />
       <workItem from="1615369725308" duration="1362000" />
       <workItem from="1615372034917" duration="15106000" />
+      <workItem from="1615466052239" duration="14880000" />
+      <workItem from="1615566567587" duration="3416000" />
+      <workItem from="1615650695562" duration="14176000" />
+      <workItem from="1615805176448" duration="1194000" />
+      <workItem from="1615810233613" duration="3468000" />
     </task>
     <servers />
   </component>
@@ -227,5 +250,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="javascript-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
