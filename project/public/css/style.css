@@ -7,7 +7,7 @@ html{
     font-size: 14px;
 }
 @font-face{
-    font-family:"Roboto-Regular";
+    font-family:"Roboto-Regular",'Open Sans', sans-serif;
     src: url('resources/font/Roboto-Regular.ttf') format("truetype");
     font-weight: normal;
     font-display: swap;
@@ -16,29 +16,16 @@ html{
     background-image: url("/images/bg-slide-1.jpg");
 }
 
-.main-homepage--content{
-
-}
 
 .crossbar-exam{
-    background-color: #e8e8e8;
     height: 2px;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.color-bar{
-    background-color: #f00;
-    width: 60px;
-    height: 100%;
 }
 
 .title-exam{
     margin-bottom: 30px
 }
-
 .container{
-    width: 1200px;
+    width: 1170px;
 }
 
 .caret{
