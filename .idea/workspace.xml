@@ -167,7 +167,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/project/public/font/font-awesome" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -175,11 +175,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\docker\japanese\project\public\font\font-awesome" />
+      <recent name="E:\docker\japanese\project\public\images" />
       <recent name="E:\docker\japanese\project\public\font" />
       <recent name="E:\docker\japanese\project" />
       <recent name="C:\Users\Admin\Desktop\docker\project" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\docker\japanese\project\public\font\font-awesome\lib" />
       <recent name="C:\Users\Admin\Desktop\docker\project" />
       <recent name="C:\Users\Admin\Desktop\docker" />
       <recent name="C:\Users\Admin\Desktop\docker\php" />
@@ -231,7 +234,10 @@
       <workItem from="1615566567587" duration="3416000" />
       <workItem from="1615650695562" duration="14176000" />
       <workItem from="1615805176448" duration="1194000" />
-      <workItem from="1615810233613" duration="4669000" />
+      <workItem from="1615810233613" duration="5608000" />
+      <workItem from="1615895952500" duration="7915000" />
+      <workItem from="1616030908198" duration="545000" />
+      <workItem from="1616039457394" duration="1969000" />
     </task>
     <servers />
   </component>
