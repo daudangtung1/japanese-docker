@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginWithGoogleController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\IndexController;
+use App\Http\Livewire\Users;
+use App\Http\Livewire\Exams;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +27,13 @@ Route::get('authorized/google', [LoginWithGoogleController::class, 'redirectToGo
 Route::get('authorized/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback']);
 
 /*index page*/
-Route::get('/{lang}', [LanguageController::class, 'switchLang'])->name('language');
+/*lang->{location=array(string)}*/
+Route::get('/lang/{lang}', [LanguageController::class, 'switchLang'])->name('language');
 Route::get('/', [IndexController::class, 'index']);
+
+//Route::get('user', [UserController::class, 'getAll'])->name('user')->middleware('admin');
+//Route::get('/user/{id}', [UserController::class, 'edit']);
+
+Route::get('users', Users::class);
+Route::get('exams', Exams::class);
+

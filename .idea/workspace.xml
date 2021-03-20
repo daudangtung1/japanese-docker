@@ -188,18 +188,19 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\docker\japanese\project\public\font\font-awesome\lib" />
-      <recent name="C:\Users\Admin\Desktop\docker\project" />
-      <recent name="C:\Users\Admin\Desktop\docker" />
-      <recent name="C:\Users\Admin\Desktop\docker\php" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\docker\japanese\project\public\font\font-awesome" />
       <recent name="E:\docker\japanese\project\public\images" />
       <recent name="E:\docker\japanese\project\public\font" />
       <recent name="E:\docker\japanese\project" />
       <recent name="C:\Users\Admin\Desktop\docker\project" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\docker\japanese\project\resources\views\livewire\users" />
+      <recent name="E:\docker\japanese\project\resources\views\user" />
+      <recent name="E:\docker\japanese\project\public\font\font-awesome\lib" />
+      <recent name="C:\Users\Admin\Desktop\docker\project" />
+      <recent name="C:\Users\Admin\Desktop\docker" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -253,7 +254,7 @@
       <workItem from="1616030908198" duration="545000" />
       <workItem from="1616039457394" duration="2484000" />
       <workItem from="1616162239652" duration="8168000" />
-      <workItem from="1616200530332" duration="515000" />
+      <workItem from="1616200530332" duration="24993000" />
     </task>
     <servers />
   </component>
