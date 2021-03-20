@@ -12,13 +12,27 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{'css/style.css'}}">
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body>
-    <div class="font-sans text-gray-900 antialiased">
+    @include('layouts.header')
+    <main>
+        <div class="banner text-center p-12 text-white">
+            <h1 class="text-4xl pb-4">KHO ĐỀ THI TIẾNG NHẬT</h1>
+            <div class="flex flex-row justify-center">
+                <div class="data-item pr-7">
+                    <span class="text-xl">3930</span> "+" <i class="not-italic">Thành viên</i>
+                </div>
+                <div class="data-item">
+                    <span class="text-xl">999</span> "+" <i class="not-italic">Đề thi</i>
+                </div>
+            </div>
+        </div>
         {{ $slot }}
-    </div>
+    </main>
+    @include('layouts.footer')
     </body>
 </html>

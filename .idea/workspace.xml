@@ -16,6 +16,20 @@
       <executable />
     </execution>
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="japanese" />
   </component>
@@ -174,18 +188,18 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\docker\japanese\project\public\font\font-awesome\lib" />
+      <recent name="C:\Users\Admin\Desktop\docker\project" />
+      <recent name="C:\Users\Admin\Desktop\docker" />
+      <recent name="C:\Users\Admin\Desktop\docker\php" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\docker\japanese\project\public\font\font-awesome" />
       <recent name="E:\docker\japanese\project\public\images" />
       <recent name="E:\docker\japanese\project\public\font" />
       <recent name="E:\docker\japanese\project" />
       <recent name="C:\Users\Admin\Desktop\docker\project" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\docker\japanese\project\public\font\font-awesome\lib" />
-      <recent name="C:\Users\Admin\Desktop\docker\project" />
-      <recent name="C:\Users\Admin\Desktop\docker" />
-      <recent name="C:\Users\Admin\Desktop\docker\php" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -237,7 +251,9 @@
       <workItem from="1615810233613" duration="5608000" />
       <workItem from="1615895952500" duration="7915000" />
       <workItem from="1616030908198" duration="545000" />
-      <workItem from="1616039457394" duration="1969000" />
+      <workItem from="1616039457394" duration="2484000" />
+      <workItem from="1616162239652" duration="8168000" />
+      <workItem from="1616200530332" duration="515000" />
     </task>
     <servers />
   </component>

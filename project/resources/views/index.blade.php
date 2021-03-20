@@ -1,95 +1,4 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <title>Homepage</title>
-    <link rel="stylesheet" type="text/css" href="{{'css/style.css'}}">
-    <link rel="stylesheet" type="text/css" href="{{'font/font-awesome/font-awesome.min.css'}}">
-</head>
-<body>
-<div class="banner text-center p-12 text-dark">
-
-    @if (Route::has('login'))
-        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            @auth
-                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
-            @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif
-
-    <h1 class="text-4xl pb-4">KHO ĐỀ THI TIẾNG NHẬT</h1>
-    <div class="flex flex-row justify-center">
-        <div class="data-item pr-7">
-            <span class="text-xl">3930</span> "+" <i class="not-italic">Thành viên</i>
-        </div>
-        <nav class="flex-1 ml-6">
-            <ul class="">
-                <li class="inline-block relative dropdown">
-                    <a href="javascript:;" class="py-4 px-4 inline-block">
-                        Luyện đề JLPT
-                        <span class="caret ml-1"></span>
-                    </a>
-                    <div class="sub-list absolute top-14 left-0 hidden">
-                        <ul class="bg-white py-4 px-4 w-56 border-t-2 border-red-600 block">
-                            <li class="pb-4 block">
-                                <a href="" class="block hover:underline">Đề thi JLPT các năm</a>
-                            </li>
-                            <li class="pb-4 block">
-                                <a href="" class="block hover:underline">Đề thi chuẩn JLPT</a>
-                            </li>
-                            <li class="pb-4 block">
-                                <a href="" class="block hover:underline">Đề thi JLPT mới</a>
-                            </li>
-                            <li class="pb-4 block">
-                                <a href="" class="block hover:underline">Đề thi luyện kỹ năng</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="inline-block">
-                    <a href="" class="py-4 px-4 inline-block text-gray-500 hover:text-black">Nâng cấp</a>
-                </li>
-                <li class="inline-block">
-                    <a href="" class="py-4 px-4 inline-block text-gray-500 hover:text-black">Tải ứng dụng</a>
-                </li>
-                <li class="inline-block">
-                    <a href="" class="py-4 px-4 inline-block text-gray-500 hover:text-black">Học tiếng Nhật</a>
-                </li>
-                <li class="inline-block">
-                    <a href="" class="py-4 px-4 inline-block text-gray-500 hover:text-black">Từ điển tiếng Nhật</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="mt-4">
-            <a href="" class="bg-red-600 py-2 px-4 rounded-md text-white hover:text-gray-900">
-                <i aria-hidden="true" class="fa fa-user-circle-o"></i>
-                Đăng nhập
-            </a>
-        </div>
-    </div>
-</header>
-<main>
-    <div class="banner text-center p-12 text-white">
-        <h1 class="text-4xl pb-4">KHO ĐỀ THI TIẾNG NHẬT</h1>
-        <div class="flex flex-row justify-center">
-            <div class="data-item pr-7">
-                <span class="text-xl">3930</span> "+" <i class="not-italic">Thành viên</i>
-            </div>
-            <div class="data-item">
-                <span class="text-xl">999</span> "+" <i class="not-italic">Đề thi</i>
-            </div>
-        </div>
-    </div>
+<x-guest-layout>
     <section class="main-homepage--content bg-gray-200 py-20">
         <div class="container mx-auto px-20">
             <div class="grid grid-cols-3 gap-4">
@@ -125,16 +34,20 @@
                                     </div>
                                     <div class="member-cpl-exam mt-4 mb-6">
                                         <div class="ava-item flex">
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-2.5 text-white">+31</span>
                                             </div>
                                         </div>
@@ -170,16 +83,20 @@
                                     </div>
                                     <div class="member-cpl-exam mt-4 mb-6">
                                         <div class="ava-item flex">
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-2.5 text-white">+31</span>
                                             </div>
                                         </div>
@@ -215,16 +132,20 @@
                                     </div>
                                     <div class="member-cpl-exam mt-4 mb-6">
                                         <div class="ava-item flex">
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-2.5 text-white">+31</span>
                                             </div>
                                         </div>
@@ -260,16 +181,20 @@
                                     </div>
                                     <div class="member-cpl-exam mt-4 mb-6">
                                         <div class="ava-item flex">
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-2.5 text-white">+31</span>
                                             </div>
                                         </div>
@@ -322,16 +247,20 @@
                                     </div>
                                     <div class="member-cpl-exam mt-4 mb-6">
                                         <div class="ava-item flex">
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-2.5 text-white">+31</span>
                                             </div>
                                         </div>
@@ -367,16 +296,20 @@
                                     </div>
                                     <div class="member-cpl-exam mt-4 mb-6">
                                         <div class="ava-item flex">
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-2.5 text-white">+31</span>
                                             </div>
                                         </div>
@@ -412,16 +345,20 @@
                                     </div>
                                     <div class="member-cpl-exam mt-4 mb-6">
                                         <div class="ava-item flex">
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-2.5 text-white">+31</span>
                                             </div>
                                         </div>
@@ -457,16 +394,20 @@
                                     </div>
                                     <div class="member-cpl-exam mt-4 mb-6">
                                         <div class="ava-item flex">
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-3.5 text-white">CV</span>
                                             </div>
-                                            <div class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
+                                            <div
+                                                class="ava-item bg-gray-200 w-12 h-12 rounded-full text-center mr-2 relative">
                                                 <span class="absolute top-3 left-2.5 text-white">+31</span>
                                             </div>
                                         </div>
@@ -499,8 +440,8 @@
                             </a>
                         </h5>
                         <h6>Trung bình của các bài thi trong tuần</h6>
-                        <div class="bg-gray-300 w-full crossbar-exam mt-4">
-                            <div class="bg-red-600 h-full w-16"></div>
+                        <div class="crossbar-exam">
+                            <div class="color-bar"></div>
                         </div>
                     </div>
                     <div class="rank-average">
@@ -519,156 +460,11 @@
                                 <span class="bg-red-700 p-2 rounded-md text-white">01</span>
                             </div>
                         </div>
-                        <div class="mb-10 flex justify-between items-center rank-average-item">
-                            <div class="ava-user bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
-                                <span class="absolute top-3 left-3.5 text-white">CV</span>
-                            </div>
-                            <div class="flex-1 ml-2 info-user">
-                                <h5>lan thương</h5>
-                                <p>
-                                    <span class="score-average text-red-600	">149.75 điểm</span>/
-                                    <span class="exam-total">19 đề thi</span>
-                                </p>
-                            </div>
-                            <div class="number-rank leading-10">
-                                <span class="bg-red-700 p-2 rounded-md text-white">01</span>
-                            </div>
-                        </div>
-                        <div class="mb-10 flex justify-between items-center rank-average-item">
-                            <div class="ava-user bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
-                                <span class="absolute top-3 left-3.5 text-white">CV</span>
-                            </div>
-                            <div class="flex-1 ml-2 info-user">
-                                <h5>lan thương</h5>
-                                <p>
-                                    <span class="score-average text-red-600	">149.75 điểm</span>/
-                                    <span class="exam-total">19 đề thi</span>
-                                </p>
-                            </div>
-                            <div class="number-rank leading-10">
-                                <span class="bg-red-700 p-2 rounded-md text-white">01</span>
-                            </div>
-                        </div>
-                        <div class="mb-10 flex justify-between items-center rank-average-item">
-                            <div class="ava-user bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
-                                <span class="absolute top-3 left-3.5 text-white">CV</span>
-                            </div>
-                            <div class="flex-1 ml-2 info-user">
-                                <h5>lan thương</h5>
-                                <p>
-                                    <span class="score-average text-red-600	">149.75 điểm</span>/
-                                    <span class="exam-total">19 đề thi</span>
-                                </p>
-                            </div>
-                            <div class="number-rank leading-10">
-                                <span class="bg-red-700 p-2 rounded-md text-white">01</span>
-                            </div>
-                        </div>
-                        <div class="mb-10 flex justify-between items-center rank-average-item">
-                            <div class="ava-user bg-blue-500 w-12 h-12 rounded-full text-center mr-2 relative">
-                                <span class="absolute top-3 left-3.5 text-white">CV</span>
-                            </div>
-                            <div class="flex-1 ml-2 info-user">
-                                <h5>lan thương</h5>
-                                <p>
-                                    <span class="score-average text-red-600	">149.75 điểm</span>/
-                                    <span class="exam-total">19 đề thi</span>
-                                </p>
-                            </div>
-                            <div class="number-rank leading-10">
-                                <span class="bg-red-700 p-2 rounded-md text-white">01</span>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-</main>
-<footer class="bg-gray-100 py-10">
-    <div class="container mx-auto px-20">
-        <div class="footer-main">
-            <div class="grid grid-cols-3 gap-4">
-                <div class="col-span-2">
-                    <div class="grid grid-cols-4 gap-4">
-                        <div class="">
-                            <div class="logo-footer pb-4">
-                                <a href="">
-                                    <img src="{{'images/logo.png'}}" alt="">
-                                </a>
-                            </div>
-                            <ul>
-                                <li class="pb-2"><a href="" class="hover:underline hover:text-red-600">Về chúng tôi</a>
-                                </li>
-                                <li class="pb-2"><a href="" class="hover:underline hover:text-red-600">Trợ giúp</a></li>
-                            </ul>
-                            <!--                            <div class="language-choice">-->
-                            <!--                                <select class="border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white appearance-none">-->
-                            <!--									<option><a href="">Tieng Viet</a></option>-->
-                            <!--									<option><a href="">English</a></option>-->
-                            <!--									<option><a href="">Japanese</a></option>-->
-                            <!--								</select>-->
-                            <!--                            </div>-->
-                        </div>
-                        <div class="">
-                            <h3 class="font-semibold mt-0 mb-2">Luyện đề JLPT</h3>
-                            <ul>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Đề thi JLPT các năm</a>
-                                </li>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Đề thi chuẩn JLPT</a>
-                                </li>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Đề thi JLPT mới</a>
-                                </li>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Đề thi luyện kỹ năng</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="">
-                            <h3 class="font-semibold mt-0 mb-2">Tiện ích khác</h3>
-                            <ul>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Học tiếng Nhật</a>
-                                </li>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Từ điển tiếng Nhật</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="">
-                            <h3 class="font-semibold mt-0 mb-2">Tải nguyên mở</h3>
-                            <ul>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Dành cho giáo viên</a>
-                                </li>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Dành cho trung tâm</a>
-                                </li>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="app-group">
-                    <h3 class="font-semibold mt-0 mb-2">Tải ứng dụng</h3>
-                    <div class="flex logo-app mb-2">
-                        <a href="" class="mr-2"><img src="{{'images/Appstore.png'}}" alt=""></a>
-                        <a href="" class="mr-2"><img src="{{'imagesGooglePlay.png'}}" alt=""></a>
-                    </div>
-                    <div class="social-link">
-                        <h3 class="font-semibold mb-2">Kết nối với chúng tôi</h3>
-                        <div class="flex logo-app">
-                            <a href="" class="mr-2 text-3xl"><i class="fa fa-facebook-square"></i></a>
-                            <a href="" class="mr-2 text-3xl"><i class="fa fa-google-plus-square"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-</body>
-</html>
+
+</x-guest-layout>
