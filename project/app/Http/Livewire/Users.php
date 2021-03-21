@@ -5,10 +5,12 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Repositories\User\UserRepositoryInterface;
 use App\Models\User;
+use Livewire\WithPagination;
 
 class Users extends Component
 {
-    public $users, $email, $password, $name;
+    use WithPagination;
+    public $email, $password, $name;
     public $isOpen = 0;
 
 //    private $userRepository;
@@ -23,9 +25,12 @@ class Users extends Component
 //        $users=$this->userRepository->getAll();
 
 
-       $this->users = User::all();
+    //    $this->users = User::paginate(10);
 
-        return view('livewire.users');
+        return view('livewire.users',
+        [
+            'users' => User::paginate(10)
+        ]);
     }
 
     private function resetInputFields()
