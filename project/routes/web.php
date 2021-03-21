@@ -18,9 +18,13 @@ use App\Http\Livewire\Exams;
 |
 */
 //
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('user/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified','admin'])->get('/admin/dashboard', function () {
+    return view('admin.index');
+})->name('dashboard.admin');
 
 //auth google api
 Route::get('authorized/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
@@ -36,4 +40,9 @@ Route::get('/', [IndexController::class, 'index']);
 
 Route::get('users', Users::class);
 Route::get('exams', Exams::class);
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('admin/home', 'HomeController@handleAdmin')->name('admin.route')->middleware('admin');
 

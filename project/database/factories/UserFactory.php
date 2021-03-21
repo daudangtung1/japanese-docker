@@ -31,12 +31,18 @@ class UserFactory extends Factory
            'email_verified_at' => now(),
            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
            'remember_token' => Str::random(10),
-
-            // 'name' => 'dau dang tung',
-            // 'email' => 'dangtung.dau.bka@gmail.com',
-            // 'email_verified_at' => now(),
-            // 'password' =>  Hash::make('11111111'), // password
-            // 'remember_token' => Str::random(10),
+        //    [
+        //     'name'=>'Admin',
+        //     'email'=>'johndoe@hotmail.com',
+        //      'user_type'=>'user',
+        //     'password'=> bcrypt('07070707'),
+        //  ],
+        //  [
+        //     'name'=>'hieu User',
+        //     'email'=>'hieuhoa1408@gmail.com',
+        //      'user_type'=>'user',
+        //     'password'=> bcrypt('12345678'),
+        //  ],
         ];
     }
 
