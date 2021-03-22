@@ -11,7 +11,6 @@
                 {{ session('status') }}
             </div>
         @endif
-        <h1>sadsadsadsadasdsadsadasdsadsa</h1>
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -45,12 +44,11 @@
                 <x-jet-button class="ml-4">
                     {{ __('Log in') }}
                 </x-jet-button>
-                <div class="flex items-center justify-end mt-4">
+                <x-jet-button class="ml-4">
                     <a href="{{ url('authorized/google') }}">
-                        <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png"
-                             style="margin-left: 3em;">
+                        {{ __('by google') }}
                     </a>
-                </div>
+                </x-jet-button>
             </div>
         </form>
     </x-jet-authentication-card>

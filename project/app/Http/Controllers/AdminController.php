@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Auth\StatefulGuard;
@@ -38,7 +36,7 @@ class AdminController extends Controller
      */
     public function __construct(StatefulGuard $guard, Request $request)
     {
-        $this->middleware(['auth:admin,admin', 'verified']);
+        $this->middleware(['auth:admin', 'verified','admin']);
     }
 
 

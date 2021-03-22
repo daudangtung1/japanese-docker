@@ -16,13 +16,14 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(session('user_type') === 'ADM'){
+        if(session('user_type') === 'ADM')
+        {
             return $next($request);
         }
         else
         {
             session()->flush();
-            return redirect()->route('login')
+            return redirect()->route('login');
         }
    
         return $next($request);

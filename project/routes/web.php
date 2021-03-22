@@ -23,8 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('user/dashboard', function 
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified','admin'])->get('/admin/dashboard', function () {
-    return view('admin.index');
-})->name('dashboard.admin');
+    return view('admin.dashboard');
+})->name('admin.dashboard');
 
 //auth google api
 Route::get('authorized/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
@@ -40,9 +40,4 @@ Route::get('/', [IndexController::class, 'index']);
 
 Route::get('users', Users::class);
 Route::get('exams', Exams::class);
-
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('admin/home', 'HomeController@handleAdmin')->name('admin.route')->middleware('admin');
 
