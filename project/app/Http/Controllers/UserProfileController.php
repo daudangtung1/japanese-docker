@@ -8,7 +8,7 @@ use Laravel\Jetstream\Http\Controllers\Livewire\UserProfileController as UserPro
 
 class UserProfileController extends UserProfileControllerVendor
 {
-    
+
     /**
      * Show the user profile screen.
      *
@@ -26,7 +26,6 @@ class UserProfileController extends UserProfileControllerVendor
         return view('profile.show', [
             'request' => $request,
             'user' => $request->user(),
-            dd(1);
         ]);
     }
 }
