@@ -35,16 +35,11 @@ Route::get('/', [IndexController::class, 'index']);
 Route::get('exams', Exams::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-
-    Route::get('user/dashboard', function () {
-        return view('dashboard');
-    })->name('user.dashboard');
+    Route::get('user/dashboard', function () { return view('dashboard');})->name('user.dashboard');
 });
 
 Route::middleware(['auth:sanctum', 'verified','admin'])->group(function () {
-
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    Route::get('/admin/dashboard', function () {return view('admin.dashboard');})->name('admin.dashboard');
     Route::get('/admin/users', Users::class)->name('admin.users');
+    Route::get('/admin/send', [NotificationController::class,'sendNotification']);
 });
