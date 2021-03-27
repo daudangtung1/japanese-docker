@@ -44,5 +44,3 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->group(function () {
     Route::get('/admin/users', Users::class)->name('admin.users');
     Route::get('/admin/send', [NotificationController::class,'sendNotification']);
 });
-
-Route::get('notification', NotificationCRUD::class);

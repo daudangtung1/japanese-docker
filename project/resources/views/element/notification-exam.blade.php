@@ -1,6 +1,6 @@
 <div class="absolute right-0 p-2 transform translate-x-full">
 @foreach ($notifications as $notification)
-            <h1>{{dd($notification)}}</h1>
+            <h1>{{dd($notifications)}}</h1>
         @endforeach
                 <!-- Close button -->
                 <button

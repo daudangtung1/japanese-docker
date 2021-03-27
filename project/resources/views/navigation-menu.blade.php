@@ -75,8 +75,10 @@
                             </form>
                         </x-slot>
                     </x-jet-dropdown>
-                    <livewire:notification-exam />
-                    <div class="flex h-screen">
+                </div>
+            </div>
+                    <!-- <livewire:notification-exam />  -->
+                    <!-- <div class="flex h-screen">
                     <div class="m-auto">
                         <div class="bg-white rounded-lg border-gray-600 border p-3 shadow-lg">
                             <div class="flex flex-row">
@@ -94,7 +96,7 @@
                     </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
