@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <!-- Scripts -->
-
+    @livewireStyles
 </head>
 <body class="font-sans antialiased">
 <x-jet-banner/>
@@ -37,5 +37,6 @@
 </div>
 
 @stack('modals')
+@livewireScripts
 </body>
 </html>

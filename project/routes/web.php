@@ -41,6 +41,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 Route::middleware(['auth:sanctum', 'verified','admin'])->group(function () {
     Route::get('/admin/dashboard', function () {return view('admin.dashboard');})->name('admin.dashboard');
-    Route::get('/admin/users', Users::class)->name('admin.users');
+    Route::view('/admin/dashboard/users', 'admin.list-user')->name('admin.list-user');
     Route::get('/admin/send', [NotificationController::class,'sendNotification']);
 });
