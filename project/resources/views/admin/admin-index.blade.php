@@ -9,7 +9,7 @@
                     <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4">
                         <!-- Value card -->
                         <livewire:admin.components.user-list-box-admin />
-                        
+                        <livewire:admin.components.exam-list-box-admin />
                     </div>
                     <!-- Charts -->
                     <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
