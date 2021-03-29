@@ -4,9 +4,18 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Exam;
+use App\Models\User;
+use App\Notifications\ExamNotification;
 
 class Exams extends Component
 {
+    protected const TEST  = [
+        1 => 'De Thi N1',
+        2 => 'De Thi N2',
+        3 => 'De Thi N3',
+        4 => 'De Thi N4',
+        5 => 'De Thi N5',
+    ];
     public $exams, $title, $time, $status;
     public $isOpen = 0;
 
@@ -40,14 +49,24 @@ class Exams extends Component
     }
 
     public function store(){
+
+        $users = User::all();
         $validatedDate = $this->validate([
             'title' => 'required',
             'time' => 'required',
             'status' => 'required',
         ]);
-
         Exam::create($validatedDate);
 
+        $details = [
+            'greeting' => 'Hi Artisan',
+            'body' => 'This is our example notification tutorial',
+            'thanks' => 'Thank you for visiting codechief.org!',
+    ];
+
+        foreach ($users as $user) {
+            $user->notify(new ExamNotification($details));
+        }
         session()->flash('message', 'Post Created Successfully.');
 
         $this->resetInputFields();
