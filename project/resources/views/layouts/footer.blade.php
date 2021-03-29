@@ -1,86 +1,52 @@
-<footer class="bg-gray-100 py-10">
-    <div class="container mx-auto px-20">
-        <div class="footer-main">
-            <div class="grid grid-cols-3 gap-4">
-                <div class="col-span-2">
-                    <div class="grid grid-cols-4 gap-4">
-                        <div class="">
-                            <div class="logo-footer pb-4">
-                                <a href="">
-                                    <img src="resources/img/logo.png" alt="">
-                                </a>
-                            </div>
-                            <ul>
-                                <li class="pb-2"><a href="" class="hover:underline hover:text-red-600">Về chúng tôi</a>
-                                </li>
-                                <li class="pb-2"><a href="" class="hover:underline hover:text-red-600">Trợ giúp</a></li>
-                            </ul>
-                            <!--                            <div class="language-choice">-->
-                            <!--                                <select class="border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white appearance-none">-->
-                            <!--									<option><a href="">Tieng Viet</a></option>-->
-                            <!--									<option><a href="">English</a></option>-->
-                            <!--									<option><a href="">Japanese</a></option>-->
-                            <!--								</select>-->
-                            <!--                            </div>-->
-                        </div>
-                        <div class="">
-                            <h3 class="font-semibold mt-0 mb-2">Luyện đề JLPT</h3>
-                            <ul>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Đề thi JLPT các năm</a>
-                                </li>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Đề thi chuẩn JLPT</a>
-                                </li>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Đề thi JLPT mới</a>
-                                </li>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Đề thi luyện kỹ năng</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="">
-                            <h3 class="font-semibold mt-0 mb-2">Tiện ích khác</h3>
-                            <ul>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Học tiếng Nhật</a>
-                                </li>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Từ điển tiếng Nhật</a>
-                                </li>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="">
-                            <h3 class="font-semibold mt-0 mb-2">Tải nguyên mở</h3>
-                            <ul>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Dành cho giáo viên</a>
-                                </li>
-                                <li class="pb-2">
-                                    <a href="" class="hover:underline hover:text-red-600">Dành cho trung tâm</a>
-                                </li>
-                                </li>
-                            </ul>
-                        </div>
+<footer class="bg-blue-100 pt-8 pb-6">
+    <div class="container">
+        <div class="flex flex-wrap text-center lg:text-left">
+            <div class="w-full lg:w-6/12 px-4">
+                <h4 class="text-3xl font-semibold">Let's keep in touch!</h4>
+                <h5 class="text-lg mt-0 mb-2 text-gray-600">Find us on any of these platforms, we respond 1-2 business days.</h5>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+                <div class="flex flex-wrap items-top mb-6">
+                    <div class="w-full lg:w-4/12 px-4 ml-auto">
+                        <span class="block uppercase text-gray-500 text-sm font-semibold mb-2">USEFUL LINKS</span>
+                        <ul>
+                            <li>
+                                <a href="" class="text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm">About Us</a>
+                            </li>
+                            <li>
+                                <a href="" class="text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm">Blog</a>
+                            </li>
+                            <li>
+                                <a href="" class="text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm">Github</a>
+                            </li>
+                            <li>
+                                <a href="" class="text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm">Free Products</a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-                <div class="app-group">
-                    <h3 class="font-semibold mt-0 mb-2">Tải ứng dụng</h3>
-                    <div class="flex logo-app mb-2">
-                        <a href="" class="mr-2"><img src="resources/img/Appstore.png" alt=""></a>
-                        <a href="" class="mr-2"><img src="resources/img/GooglePlay.png" alt=""></a>
-                    </div>
-                    <div class="social-link">
-                        <h3 class="font-semibold mb-2">Kết nối với chúng tôi</h3>
-                        <div class="flex logo-app">
-                            <a href="" class="mr-2 text-3xl"><i class="fa fa-facebook-square"></i></a>
-                            <a href="" class="mr-2 text-3xl"><i class="fa fa-google-plus-square"></i></a>
-                        </div>
+                    <div class="w-full lg:w-4/12 px-4 ml-auto">
+                        <span class="block uppercase text-gray-500 text-sm font-semibold mb-2">OTHER RESOURCES</span>
+                        <ul>
+                            <li>
+                                <a href="" class="text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm">MIT License</a>
+                            </li>
+                            <li>
+                                <a href="" class="text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm">Terms & Conditions</a>
+                            </li>
+                            <li>
+                                <a href="" class="text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="" class="text-gray-600 hover:text-gray-800 font-semibold block pb-2 text-sm">Contact Us</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+        <hr class="my-6 border-gray-300">
+    </div>
+    <div class="text-sm text-gray-500 font-semibold py-1 text-center">
+        Copyright © 2021 Notus JS by Creative Tim .
     </div>
 </footer>
