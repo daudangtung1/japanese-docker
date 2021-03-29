@@ -6,7 +6,6 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\IndexController;
 use App\Http\Livewire\Users;
 use App\Http\Livewire\Exams;
-use App\Http\Livewire\NotificationCRUD;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,5 +47,3 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->group(function () {
     })->name('admin.dashboard');
     Route::get('/admin/users', Users::class)->name('admin.users');
 });
-
-Route::get('notification', NotificationCRUD::class);
