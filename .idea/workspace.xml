@@ -185,6 +185,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
   </component>
   <component name="RecentsManager">
@@ -259,7 +260,8 @@
       <workItem from="1616499873340" duration="6617000" />
       <workItem from="1616590386368" duration="1237000" />
       <workItem from="1616594174095" duration="5974000" />
-      <workItem from="1616996398854" duration="1356000" />
+      <workItem from="1616996398854" duration="5786000" />
+      <workItem from="1617066801933" duration="859000" />
     </task>
     <servers />
   </component>
