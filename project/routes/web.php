@@ -31,8 +31,6 @@ Route::get('/', [IndexController::class, 'index']);
 //Route::get('user', [UserController::class, 'getAll'])->name('user')->middleware('admin');
 //Route::get('/user/{id}', [UserController::class, 'edit']);
 
-// Route::get('users', Users::class);
-Route::get('exams', Exams::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('user/dashboard', function () { return view('dashboard');})->name('user.dashboard');
@@ -41,5 +39,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 Route::middleware(['auth:sanctum', 'verified','admin'])->group(function () {
     Route::get('/admin/dashboard', function () {return view('admin.dashboard');})->name('admin.dashboard');
     Route::view('/admin/dashboard/users', 'admin.list-user')->name('admin.list-user');
+
 //    Route::get('/admin/send', [NotificationController::class,'sendNotification']);
+
+    Route::get('/admin/send', [NotificationController::class,'sendNotification']);
+    Route::get('/admin/dashboard/exam', function () {return view('admin.list-exam');})->name('admin.exam');
+
 });
