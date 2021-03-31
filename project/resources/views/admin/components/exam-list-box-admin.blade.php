@@ -1,5 +1,5 @@
 <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                    <a href="{{ route('admin.list-user') }}">
+                    <a href="{{ route('admin.exam') }}">
                             <div>
                                 <h6
                                     class="text-xl font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
