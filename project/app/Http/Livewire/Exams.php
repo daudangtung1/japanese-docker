@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Exam;
 use App\Models\User;
 use App\Notifications\ExamNotification;
+use App\Models\ExamCategory;
 
 class Exams extends Component
 {
@@ -16,7 +17,7 @@ class Exams extends Component
         4 => 'De Thi N4',
         5 => 'De Thi N5',
     ];
-    public $exams, $title, $time, $status;
+    public $exams, $title, $time, $status ,$category;
     public $isOpen = 0;
 
     public function render()
@@ -52,7 +53,7 @@ class Exams extends Component
 
         $users = User::all();
         $validatedDate = $this->validate([
-            'title' => 'required',
+            'exam_categories' => 'required',
             'time' => 'required',
             'status' => 'required',
         ]);
@@ -70,6 +71,19 @@ class Exams extends Component
         session()->flash('message', 'Post Created Successfully.');
 
         $this->resetInputFields();
+    }
+
+    public function category()
+    {
+        $this->resetInputFields();
+        $this->openModal();
+    }
+
+
+    public function storeCategory()
+    {
+        $this->resetInputFields();
+        $this->openModal();
     }
 
 }
