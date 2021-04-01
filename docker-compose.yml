@@ -4,11 +4,14 @@ services:
   #PHP Service
   app:
     build:
+      args:
+        user: Hieu
+        uid: 1000
       context: .
       dockerfile: Dockerfile
-      args:
-        - WITH_XDEBUG=true
-    env_file: ./project/.env
+    #      args:
+    #        - WITH_XDEBUG=true
+    env_file: project/.env
     image: digitalocean.com/php
     container_name: app
     restart: unless-stopped

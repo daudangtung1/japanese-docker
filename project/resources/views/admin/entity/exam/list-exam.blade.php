@@ -11,7 +11,7 @@
                     </div>
                 @endif
                     @if($updateMode)
-                        @include('admin.entity.exam.create')
+                        @include('admin.entity.exam.create', array('exam_category' => $exam_category))
                     @else
                         <div class="-my-2 py-12 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
                             <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
@@ -34,7 +34,7 @@
                                             <button wire:click="create()" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Create Exam</button>
                                         </td>
                                         <td class="px-6 pl-5 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                            <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Create Category</button>
+                                            <a class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none" href="{{ route('admin.exam-category') }}">Create Category</a>
                                         </td>
                                     </div>
                                 </div>

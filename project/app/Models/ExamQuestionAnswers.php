@@ -10,11 +10,16 @@ class ExamQuestionAnswers extends Model
     use HasFactory;
 
     protected $casts = [
-        'meta_exam' => 'array'
+        'meta_exam' => 'array',
+//        'questions' => 'json',
+//        'module' => 'json',
    ];
 
     protected $fillable = [
-     'name', 'email', 'password', 
-     'meta'
+     'meta_exam'
    ];
+
+//    protected $attributes = [
+//        'meta_exam' => ['questions', 'module']
+//    ];
 }

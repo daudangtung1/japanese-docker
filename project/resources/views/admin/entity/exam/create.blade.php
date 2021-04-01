@@ -12,33 +12,36 @@
     <div class="flex space-x-3 mb-10 mt-10 text-sm font-medium">
         <p>Level :</p>
         <div class="flex-auto flex space-x-3">
-            <button class="w-1/5 flex items-center justify-center rounded-md border border-gray-300" type="submit">N1</button>
-            <button class="w-1/5 flex items-center justify-center rounded-md border border-gray-300" type="button">N2</button>
-            <button class="w-1/5 flex items-center justify-center rounded-md bg-black text-white" type="submit">N3</button>
-            <button class="w-1/5 flex items-center justify-center rounded-md border border-gray-300" type="submit">N4</button>
-            <button class="w-1/5 flex items-center justify-center rounded-md border border-gray-300" type="submit">N5</button>
+            @if(is_object($exam_category))
+                <select class="form-control" style="width: 100%" wire:model="meta_exam.module.exam_category">
+                    @foreach ($exam_category as $category)
+                        <option value="{{ $category->id }}" wire:click="selectItems({{$category->id}})">
+                            {{ $category->exam_categories }}
+                        </option>
+                    @endforeach
+                </select>
+            @endif
         </div>
     </div>
     <div class="flex space-x-3 mb-10 mt-10 text-sm font-medium">
         <p>All Question : 180 cau</p>
     </div>
 
-    @switch($full_mode)
-        @case($listen_mode)
-            @include('admin.entity.exam.mode.list-listen')
-        @break
-
-            @case($vocabulary_mode)
-            @include('admin.entity.exam.mode.list-vocabulary')
-        @break
-
-        @case($read_mode)
-            @include('admin.entity.exam.mode.list-read')
-        @break
-
-        @default
+    @if($full_mode)
         @include('admin.entity.exam.mode.list-full-mode')
-    @endswitch
-
+    @else
+        @if($listen_mode)
+            @include('admin.entity.exam.mode.list-listen')
+        @endif
+        @if($vocabulary_mode)
+                @include('admin.entity.exam.mode.list-vocabulary')
+            @endif
+        @if($read_mode)
+                    @include('admin.entity.exam.mode.list-read')
+            @endif
+            @if($full_mode)
+                @include('admin.entity.exam.mode.list-full-mode')
+            @endif
+        @endif
     <button wire:click.prevent="store()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
 </form>

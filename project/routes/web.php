@@ -45,4 +45,6 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->group(function () {
     Route::get('/admin/send', [NotificationController::class,'sendNotification']);
     Route::get('/admin/dashboard/exam', function () {return view('admin.list-exam');})->name('admin.exam');
 
+    Route::get('/admin/dashboard/exam-category', function () {return view('admin.exam-category');})->name('admin.exam-category');
+
 });

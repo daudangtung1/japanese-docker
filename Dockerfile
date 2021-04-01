@@ -1,5 +1,9 @@
 FROM php:7.4-fpm
 
+# Arguments defined in docker-compose.yml
+ARG user
+ARG uid
+
 # Copy composer.lock and composer.json
 # COPY composer.lock composer.json /var/www/
 # Set working directory
@@ -43,6 +47,17 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 # Copy existing application directory contents
+
+# Create system user to run Composer and Artisan Commands
+RUN useradd -G www-data,root -u $uid -d /home/$user $user
+RUN mkdir -p /home/$user/.composer && \
+    chown -R $user:$user /home/$user
+# Set the user
+USER $user
+
+# Copy your files
+COPY . .
+
 COPY . /var/www
 RUN npm install
 

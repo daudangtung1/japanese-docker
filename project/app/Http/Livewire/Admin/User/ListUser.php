@@ -67,7 +67,7 @@ class ListUser extends Component
         $this->name = $id;
         $this->email = $post->email;
         $this->password = $post->password;
-  
+
         $this->updateMode = true;
     }
 
@@ -77,15 +77,15 @@ class ListUser extends Component
             'name' => 'required',
             'email' => 'required',
         ]);
-  
+
         $user = User::find($this->id);
         $user->update([
             'name' => $this->name,
             'email' => $this->email,
         ]);
-  
+
         $this->updateMode = false;
-  
+
         session()->flash('message', 'Post Updated Successfully.');
         $this->resetInputFields();
     }
