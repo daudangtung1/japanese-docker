@@ -37,6 +37,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -181,27 +182,27 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/project/public/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/project/public/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\docker\japanese\project\public\images" />
-      <recent name="E:\docker\japanese\project\public\font\font-awesome" />
-      <recent name="E:\docker\japanese\project\public\font" />
-      <recent name="E:\docker\japanese\project" />
-      <recent name="C:\Users\Admin\Desktop\docker\project" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\docker\japanese\project\resources\views\livewire\users" />
       <recent name="E:\docker\japanese\project\resources\views\user" />
       <recent name="E:\docker\japanese\project\public\font\font-awesome\lib" />
       <recent name="C:\Users\Admin\Desktop\docker\project" />
       <recent name="C:\Users\Admin\Desktop\docker" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\docker\japanese\project\public\css" />
+      <recent name="E:\docker\japanese\project\public\js" />
+      <recent name="E:\docker\japanese\project\public\images" />
+      <recent name="E:\docker\japanese\project\public\font\font-awesome" />
+      <recent name="E:\docker\japanese\project\public\font" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -262,6 +263,7 @@
       <workItem from="1616594174095" duration="5974000" />
       <workItem from="1616996398854" duration="5786000" />
       <workItem from="1617066801933" duration="859000" />
+      <workItem from="1617355878338" duration="6374000" />
     </task>
     <servers />
   </component>

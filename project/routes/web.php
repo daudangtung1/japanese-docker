@@ -6,6 +6,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\IndexController;
 use App\Http\Livewire\Users;
 use App\Http\Livewire\Exams;
+use App\Http\Livewire\Admin\Banner\Banner;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,5 +47,5 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->group(function () {
     Route::get('/admin/dashboard/exam', function () {return view('admin.list-exam');})->name('admin.exam');
 
     Route::get('/admin/dashboard/exam-category', function () {return view('admin.exam-category');})->name('admin.exam-category');
-
+    Route::get('/admin/banner', function (){return view('livewire.admin.banner.banner');})->name('admin.banner');
 });

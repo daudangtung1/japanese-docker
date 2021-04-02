@@ -8,6 +8,6 @@ class SearchPanel extends Component
 {
     public function render()
     {
-        return view('admin.components.search-panel') ->layout('layouts.admin');;
+        return view('admin.components.search-panel')->layout('layouts.admin');
     }
 }

@@ -1,8 +1,8 @@
 <p class="text-center text-xl">Ban dang lam phan nghe cua de thi n2</p>
 <form>
     <div class="flex space-x-3 mb-10 mt-10 text-sm font-medium">
-        <p>Phan Lua Chon :</p>
-        <div class="flex-auto flex space-x-3">
+        <p>Phan lua chon :</p>
+        <div class="flex-auto flex space-x-3 w-full">
             <button wire:click="vocabulary()" class="w-1/4 flex items-center justify-center rounded-md border border-gray-300" type="button">Tu Vung</button>
             <button wire:click="listening()" class="w-1/4 flex items-center justify-center rounded-md border border-gray-300" type="button">Nghe</button>
             <button wire:click="read()" class="w-1/4 flex items-center justify-center rounded-md border border-gray-300" type="button">Doc Hieu</button>
