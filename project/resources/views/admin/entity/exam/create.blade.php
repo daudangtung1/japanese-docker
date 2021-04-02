@@ -1,12 +1,13 @@
 <p class="text-center text-xl">Ban dang lam phan nghe cua de thi n2</p>
 <form>
     <div class="flex space-x-3 mb-10 mt-10 text-sm font-medium">
-        <p>Phan lua chon :</p>
-        <div class="flex-auto flex space-x-3 w-full">
-            <button wire:click="vocabulary()" class="w-1/4 flex items-center justify-center rounded-md border border-gray-300" type="button">Tu Vung</button>
-            <button wire:click="listening()" class="w-1/4 flex items-center justify-center rounded-md border border-gray-300" type="button">Nghe</button>
-            <button wire:click="read()" class="w-1/4 flex items-center justify-center rounded-md border border-gray-300" type="button">Doc Hieu</button>
-            <button wire:click="full()" class="w-1/4 flex items-center justify-center rounded-md bg-black text-white" type="button">Tron de</button>
+        <p>Phan Lua Chon Page:</p>
+        <div class="flex-auto flex space-x-3">
+                <select class="form-control" style="width: 100%" wire:model="status_exam" wire:change="$emit('examSelected','status_exam')">
+                    <option value="0" selected="selected">Phan Nghe</option>
+                    <option value="1">Tu Vung</option>
+                    <option value="2">Doc Hieu</option>
+                </select>
         </div>
     </div>
     <div class="flex space-x-3 mb-10 mt-10 text-sm font-medium">
@@ -27,21 +28,15 @@
         <p>All Question : 180 cau</p>
     </div>
 
-    @if($full_mode)
-        @include('admin.entity.exam.mode.list-full-mode')
-    @else
-        @if($listen_mode)
+    @if(isset($listen_mode) && !empty($listen_mode))
             @include('admin.entity.exam.mode.list-listen')
-        @endif
-        @if($vocabulary_mode)
-                @include('admin.entity.exam.mode.list-vocabulary')
-            @endif
-        @if($read_mode)
-                    @include('admin.entity.exam.mode.list-read')
-            @endif
-            @if($full_mode)
-                @include('admin.entity.exam.mode.list-full-mode')
-            @endif
-        @endif
+    @endif
+    @if(isset($vocabulary_mode) && !empty($vocabulary_mode))
+            @include('admin.entity.exam.mode.list-vocabulary')
+    @endif
+    @if(isset($read_mode) && !empty($read_mode))
+            @include('admin.entity.exam.mode.list-read')
+    @endif
+
     <button wire:click.prevent="store()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
 </form>

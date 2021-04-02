@@ -15,6 +15,7 @@ class CreateExamQuestionAnswersTable extends Migration
     {
         Schema::create('exam_question_answers', function (Blueprint $table) {
             $table->id();
+            $table->string('status_exam')->notlnull();
             $table->json('meta_exam');
             $table->timestamps();
         });
