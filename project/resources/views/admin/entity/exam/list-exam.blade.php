@@ -11,9 +11,9 @@
                     </div>
                 @endif
                 @if($createMode)
-                        @include('admin.entity.exam.create', array('exam_category' => $exam_category))
+                        @include('admin.entity.exam.create', array('exam__category' => $exam_category))
                     @elseif($updateMode)
-                            @include('admin.entity.exam.update', array('exam_category' => $exam_category))
+                            @include('admin.entity.exam.update', array('exam__category' => $exam_category))
                     @else
                         <div class="-my-2 py-12 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
                             <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
@@ -60,12 +60,16 @@
                                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                                     <div class="flex items-center">
                                                         <div>
-                                                            <div class="text-sm leading-5 text-gray-800">#{{ $exam_item->meta_exam['module']['exam_code']  }}</div>
+                                                            <div class="text-sm leading-5 text-gray-800">
+                                                                {{ $exam_item->exam_code  }}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                                    <div class="text-sm leading-5 text-blue-900">{{ $exam_item->meta_exam['module']['author']  }}</div>
+                                                    @if(isset($exam_item->meta_exam['module']))
+                                                        <div class="text-sm leading-5 text-blue-900">{{ $exam_item->meta_exam['module']['author']  }}</div>
+                                                    @endif
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
                                                 <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
@@ -80,7 +84,11 @@
                                                     <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
                                                     <span class="relative text-xs">not active</span>
                                                 </span>
-                                                <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">{{ $exam_item->meta_exam['module']['exam_category'] }}</td>
+                                                <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+                                                    @if(isset($exam_item->meta_exam['module']))
+                                                    {{ $exam_item->meta_exam['module']['exam_category'] }}
+                                                        @endif
+                                                </td>
                                                 <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
                                                     <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                                                     <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
@@ -95,7 +103,7 @@
                                                     <button wire:click="edit({{ $exam_item->id }})"  class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Edit</button>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                                    <button wire:click="delete({{ $exam_item->meta_exam['module']['exam_code'] }})" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Delete</button>
+                                                    <button wire:click="delete({{ $exam_item->exam_code }})" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Delete</button>
                                                 </td>
                                             </tr>
                                         @endforeach

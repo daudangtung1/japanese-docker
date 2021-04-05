@@ -16,34 +16,49 @@ class ListExam extends Component
 {
     use WithPagination;
 
-    public $exam_category = [] ;
+    public $exam_categories;
     public $updateMode = false;
     public $createMode = false;
     public $listen_mode = false;
     public $vocabulary_mode = false;
     public $read_mode = false;
     public $status_exam = false;
+    public $question;
+    public $answer;
+    public $question_read = [];
+
+
+    public $listen_question_exam;
+    public $listen_answers_exam = [];
+    public $listen_correct_exam =[];
+    public $read_question_exam;
+    public $read_answers_exam = [];
+    public $read_correct_exam =[];
+    public $vocabulary_question_exam;
+    public $vocabulary_answers_exam = [];
+    public $vocabulary_correct_exam =[];
 
 
     public $listeners = ['examSelected'];
 
 
     public $meta_exam = '';
+    public $exam_category_id;
+    public $exam_id;
 
-    const EXAMLISTEN = 1;
+    const EXAMLISTEN = 3;
     const EXAMREAD = 1;
-    const EXAMVOCABULARY = 1;
-    const EXAMFULL = 1;
+    const EXAMVOCABULARY = 2;
 
     public function render()
     {
-
         $status_exam = $this->status_exam;
-        $this->exam_category = ExamCategory::all();
+        $exam_categories = ExamCategory::all();
         $exam_pagination = ExamQuestionAnswers::orderBy('created_at', 'DESC')->paginate(4);
 
         return view('admin.entity.exam.list-exam',
          [
+             'exam_category' => $exam_categories,
              'status_exam' => $status_exam,
              'exam_pagination' => $exam_pagination,
          ])->layout('layouts.admin');
@@ -69,33 +84,25 @@ class ListExam extends Component
      public function store()
      {
 
-         $exam_total = [];
-
-         $total  = $this->meta_exam;
+         $validatedDate = $this->validate([
+             'email' => 'required',
+             'name' => 'required',
+             'password' => 'required',
+         ]);
          $exam_code = Str::random(20);
-         $author = Auth::id();
-         $exam_category = isset($this->meta_exam['module']['exam_category']) ? $this->meta_exam['module']['exam_category'] : '';
-//         $revision = Carbon::now();
 
-         $total['module'] = [
-                 'exam_category' => $exam_category,
-                 'exam_code' => $exam_code,
-                 'author' => $author,
-                 'total_question' => ListExam::EXAMLISTEN,
-//                 'revision' => $revision,
-         ];
-
-
-         $total = $this->validate(
-             [
-                 'meta_exam.exam_items.listen.*.question.question' => ['required'],
-                 'meta_exam.exam_items.listen.*.answer.*' => ['required'],
-                 ]
-         );
-
-         dd($total);
-
-         ExamQuestionAnswers::create((['meta_exam' => $total]));
+         ExamQuestionAnswers::create([
+             'exam_code' => $exam_code,
+             'read_question_exam' => $this->read_question_exam,
+             'read_correct_exam' => $this->read_correct_exam,
+             'read_answers_exam' => $this->read_answers_exam,
+             'vocabulary_question_exam' => $this->vocabulary_question_exam,
+             'vocabulary_correct_exam' => $this->vocabulary_correct_exam,
+             'vocabulary_answers_exam' => $this->vocabulary_answers_exam,
+             'listen_question_exam' => $this->listen_question_exam,
+             'listen_correct_exam' => $this->listen_correct_exam,
+             'listen_answers_exam' => $this->listen_answers_exam,
+             ]);
 
          session()->flash('message', 'Post Created Successfully.');
 
@@ -110,14 +117,61 @@ class ListExam extends Component
 
     public function edit($id)
     {
+        $this->emit('exam_id:edit', $id);
         $current_exam = ExamQuestionAnswers::findOrFail($id);
-        $exam_info  = $current_exam->meta_exam;
-        $question_answer = $exam_info['question'];
-        $question = $question_answer['questions'];
+        $this->exam_id = $id;
+        $listen_question = $current_exam->listen_question_exam;
+        $listen_answers = $current_exam->listen_answers_exam;
+        $listen_correct = $current_exam->listen_correct_exam;
+        $read_question = $current_exam->read_question_exam;
+        $read_answers = $current_exam->read_answers_exam;
+        $read_correct = $current_exam->read_correct_exam;
+        $vocabulary_question = $current_exam->vocabulary_question_exam;
+        $vocabulary_answers = $current_exam->vocabulary_answers_exam;
+        $vocabulary_correct = $current_exam->vocabulary_correct_exam;
 
-        $this->question = $question;
-//        $answers = $question_answer['answers'];
+        $this->listen_question_exam = $listen_question;
+        $this->listen_correct_exam = $listen_correct;
+        $this->read_question_exam = $read_question;
+        $this->read_correct_exam = $read_correct;
+        $this->vocabulary_question_exam = $vocabulary_question;
+        $this->vocabulary_correct_exam = $vocabulary_correct;
+
+
+
+        foreach ($listen_answers as $items){
+            $this->listen_answers_exam = $listen_answers;
+        }
+        foreach ($read_answers as $items){
+            $this->read_answers_exam = $read_answers;
+        }
+        foreach ($vocabulary_answers as $items){
+            $this->vocabulary_answers_exam = $vocabulary_answers;
+        }
         $this->updateMode = true;
+    }
+
+    public function update()
+    {
+        $current_exam = ExamQuestionAnswers::find($this->exam_id);
+
+        $current_exam->update([
+            'read_question_exam' => $this->read_question_exam,
+            'read_correct_exam' => $this->read_correct_exam,
+            'read_answers_exam' => $this->read_answers_exam,
+            'vocabulary_question_exam' => $this->vocabulary_question_exam,
+            'vocabulary_correct_exam' => $this->vocabulary_correct_exam,
+            'vocabulary_answers_exam' => $this->vocabulary_answers_exam,
+            'listen_question_exam' => $this->listen_question_exam,
+            'listen_correct_exam' => $this->listen_correct_exam,
+            'listen_answers_exam' => $this->listen_answers_exam,
+        ]);
+//        dd($current_exam->answers_exam);
+
+        $this->updateMode = false;
+
+        session()->flash('message', 'Post Updated Successfully.');
+//        $this->resetInputFields();
     }
 
 }

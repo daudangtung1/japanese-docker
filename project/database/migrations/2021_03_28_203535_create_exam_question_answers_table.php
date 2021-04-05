@@ -15,8 +15,17 @@ class CreateExamQuestionAnswersTable extends Migration
     {
         Schema::create('exam_question_answers', function (Blueprint $table) {
             $table->id();
-            $table->string('status_exam')->notlnull();
-            $table->json('meta_exam');
+            $table->string('exam_code')->unique();
+            $table->foreignId('exam_category_id')->nullable();
+            $table->string('listen_question_exam');
+            $table->string('listen_correct_exam');
+            $table->json('listen_answers_exam');
+            $table->string('vocabulary_question_exam');
+            $table->string('vocabulary_correct_exam');
+            $table->json('vocabulary_answers_exam');
+            $table->string('read_question_exam');
+            $table->string('read_correct_exam');
+            $table->json('read_answers_exam');
             $table->timestamps();
         });
     }
