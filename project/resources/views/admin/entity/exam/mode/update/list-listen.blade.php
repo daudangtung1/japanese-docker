@@ -37,7 +37,7 @@ $index = 1;
             @error('title') <span class="text-danger">{{ $message }}</span>@enderror
             <label class="block">
                 <span class="text-gray-700">Dap An Dung</span>
-                <select class="rounded-md form-multiselect block w-full mt-1" wire:model="listen.correct_answer.{{ $i }}">
+                <select class="rounded-md form-multiselect block w-full mt-1" wire:model="listen_correct_exam.{{ $i }}">
                     <option selected="selected" disabled>Hay Chon Dap An Dung</option>
                     <option>1</option>
                     <option>2</option>
