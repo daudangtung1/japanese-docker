@@ -32,6 +32,7 @@ class ExamQuestionAnswers extends Model
         'vocabulary_answers_exam',
         'vocabulary_question_exam',
         'vocabulary_correct_exam',
+        'exam_category_id'
     ];
 
 //    protected $primaryKey = 'ID';

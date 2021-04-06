@@ -16,7 +16,7 @@ class ListExam extends Component
 {
     use WithPagination;
 
-    public $exam_categories;
+    public $isOpen = 0;
     public $updateMode = false;
     public $createMode = false;
     public $listen_mode = false;
@@ -83,15 +83,16 @@ class ListExam extends Component
 
      public function store()
      {
+//         $validatedDate = $this->validate([
+//             'email' => 'required',
+//             'name' => 'required',
+//             'password' => 'required',
+//         ]);
 
-         $validatedDate = $this->validate([
-             'email' => 'required',
-             'name' => 'required',
-             'password' => 'required',
-         ]);
          $exam_code = Str::random(20);
 
          ExamQuestionAnswers::create([
+             'exam_category_id' => $this->exam_category_id,
              'exam_code' => $exam_code,
              'read_question_exam' => $this->read_question_exam,
              'read_correct_exam' => $this->read_correct_exam,
@@ -108,12 +109,6 @@ class ListExam extends Component
 
 //         $this->resetInputFields();
      }
-
-    public function selectItems($id)
-    {
-        return $this->exam_category = ExamCategory::where('id', '=',$id)->get();
-
-    }
 
     public function edit($id)
     {
@@ -154,8 +149,8 @@ class ListExam extends Component
     public function update()
     {
         $current_exam = ExamQuestionAnswers::find($this->exam_id);
-
         $current_exam->update([
+            'exam_category_id' => $this->exam_category_id,
             'read_question_exam' => $this->read_question_exam,
             'read_correct_exam' => $this->read_correct_exam,
             'read_answers_exam' => $this->read_answers_exam,

@@ -1,3 +1,4 @@
+<livewire:admin.components.return-button-admin />
 <form>
     <p class="text-center text-xl">CategoryExam </p>
     <div class="mb-10 mt-10">
