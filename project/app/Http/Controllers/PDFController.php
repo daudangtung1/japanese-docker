@@ -17,9 +17,9 @@ class PDFController extends Controller
             'date' => date('m/d/Y')
         ];
 
-        $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML('<h1>あぉ</h1>');
-        return $pdf->stream();
+        $pdf = PDF::loadView('myPDF');
+//        dd($pdf);
+        return $pdf->stream('myPDF');
     }
 
 }
