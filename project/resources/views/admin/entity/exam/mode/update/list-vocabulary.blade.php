@@ -1,5 +1,8 @@
-<p class="text-center text-xl" id='vocabulary'>EXAM VOCABULARY </p>
+<p class="text-center text-xl">EXAM VOCABULARY </p>
 <p class="text-center text-xl">All Question : <?php echo constant("App\Http\Livewire\Admin\Exam\ListExam::EXAMVOCABULARY"); ?>  </p>
+<?php
+$index = 1;
+?>
 @for($i=1; $i <= App\Http\Livewire\Admin\Exam\ListExam::EXAMVOCABULARY; $i++)
     <div class="bg-gray-200 mb-10 mt-10 rounded-md hover:bg-gray-300" id = "vocabulary" >
         <p class="font-semibold text-center text-blue-700" id="vocabulary{{$index}}"><?php
@@ -44,5 +47,8 @@
             </label>
         </div>
     </div>
+    <?php
+    ++$index
+    ?>
 @endfor
 

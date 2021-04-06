@@ -10,16 +10,33 @@ class ExamQuestionAnswers extends Model
     use HasFactory;
 
     protected $casts = [
-        'meta_exam' => 'array',
-//        'questions' => 'json',
-//        'module' => 'json',
+        'listen_answers_exam' => 'array',
+        'listen_question_exam'=> 'array',
+        'listen_correct_exam' => 'array',
+        'read_answers_exam' => 'array',
+        'read_question_exam'=> 'array',
+        'read_correct_exam' => 'array',
+        'vocabulary_answers_exam' => 'array',
+        'vocabulary_question_exam'=> 'array',
+        'vocabulary_correct_exam' => 'array',
    ];
 
     protected $fillable = [
-     'meta_exam'
-   ];
+        'exam_code',
+        'listen_answers_exam',
+        'listen_question_exam',
+        'listen_correct_exam',
+        'read_answers_exam',
+        'read_question_exam',
+        'read_correct_exam',
+        'vocabulary_answers_exam',
+        'vocabulary_question_exam',
+        'vocabulary_correct_exam',
+    ];
+
+//    protected $primaryKey = 'ID';
 
 //    protected $attributes = [
-//        'meta_exam' => ['questions', 'module']
+//        'meta_exam' => 'module',
 //    ];
 }

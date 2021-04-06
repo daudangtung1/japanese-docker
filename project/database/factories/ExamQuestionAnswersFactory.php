@@ -41,9 +41,10 @@ class ExamQuestionAnswersFactory extends Factory
                     'exam_code' => Str::random(10),
                     'author' =>$this->faker->name,
                     'total_question' => $this->faker->numberBetween($min = 1, $max = 4),
-                    'revision' => $this->faker->dateTime($max = 'now', $timezone = null),
                 ]
-            ]
+            ],
+
+            'exam_code' => Str::random(20)
         ];
     }
 
