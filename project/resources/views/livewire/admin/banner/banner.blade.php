@@ -1,4 +1,16 @@
 <x-admin-layout>
-    {{-- Because she competes with no one, no one can compete with her. --}}
-    sadsadsadasd
+    <form wire:submit.prevent="save">
+        <input type="file" wire:model="images">
+
+        @error('images') <span class="error">{{ $message }}</span> @enderror
+
+        <button type="submit">Save Photo</button>
+    </form>
+
+    <div>
+{{--        @foreach($data as $d)--}}
+{{--            {{$d->image}}--}}
+{{--        @endforeach--}}
+        {{dd($data)}}
+    </div>
 </x-admin-layout>
