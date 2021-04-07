@@ -22,15 +22,17 @@
             max-width: 1280px;
         }
     </style>
+    @livewireScripts
+
 </head>
 <body>
 
-<livewire:guest.header/>
-@livewireScripts
-@include('layouts.header')
+{{--<livewire:guest.header/>--}}
+{{--@include('layouts.header')--}}
 <main>
     {{ $slot }}
 </main>
 @include('layouts.footer')
+@livewireScripts
 </body>
 </html>

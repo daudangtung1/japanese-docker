@@ -9,6 +9,7 @@ use App\Http\Livewire\Exams;
 use App\Http\Livewire\Admin\Banner\Banner;
 use App\Http\Livewire\Admin\Components\PreviewExam;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\Frontend\Exam\FrontendExamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,3 +53,6 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->group(function () {
     Route::get('/admin/banner', function (){return view('livewire.admin.banner.banner');})->name('admin.banner');
     Route::get('/admin/dashboard/preview/generate-pdf/{slug}', [PDFController::class, 'generatePDF'])->name('admin-exam-preview');
 });
+
+Route::get('/exam-test',  [FrontendExamController::class, 'index'])->name('exam-detail');
+

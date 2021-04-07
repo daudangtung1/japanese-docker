@@ -16,4 +16,6 @@ class ExamCategory extends Model
     protected $hidden = [
         'id'
     ];
+
+    protected $primaryKey = 'id';
 }

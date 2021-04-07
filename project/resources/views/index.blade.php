@@ -9,7 +9,7 @@
                         and it comes with dynamic components for ReactJS, Vue and Angular.
                     </p>
                     <div class="mt-12">
-                        <a href="" class="text-white text-sm bg-pink-500 rounded-md px-6 py-4 uppercase font-bold mr-1">
+                        <a href="{{route('exam-detail')}}" class="text-white text-sm bg-pink-500 rounded-md px-6 py-4 uppercase font-bold mr-1">
                             get started
                         </a>
                         <a href="" class="text-white text-sm bg-gray-700 rounded-md px-6 py-4 uppercase font-bold ml-1">
