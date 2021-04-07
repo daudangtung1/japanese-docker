@@ -97,7 +97,7 @@
 {{--                                                </td>--}}
                                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">September 12</td>
                                                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                                    <a href="{{ route('admin.preview', $exam_item->exam_code)  }}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Preview</a>
+                                                    <a href="{{ route('admin-exam-preview', $exam_item->exam_code)  }}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none" target="_blank">Preview</a>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
                                                     <button wire:click="edit({{ $exam_item->id }})"  class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Edit</button>

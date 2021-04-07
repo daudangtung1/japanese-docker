@@ -46,9 +46,10 @@ class ListExam extends Component
     public $exam_category_id;
     public $exam_id;
 
-    const EXAMLISTEN = 3;
-    const EXAMREAD = 1;
-    const EXAMVOCABULARY = 2;
+    //file config
+    const EXAMLISTEN = 4;
+    const EXAMREAD = 3;
+    const EXAMVOCABULARY = 3;
 
     public function render()
     {
@@ -67,18 +68,6 @@ class ListExam extends Component
     public function create()
     {
             $this->createMode = true;
-    }
-
-    public function examSelected()
-    {
-
-        if ($this->status_exam == "0"){
-            $this->listen_mode = true;
-        }elseif($this->status_exam == "1"){
-            $this->vocabulary_mode = true;
-        }elseif ($this->status_exam == "2"){
-            $this->read_mode = true;
-        }
     }
 
      public function store()

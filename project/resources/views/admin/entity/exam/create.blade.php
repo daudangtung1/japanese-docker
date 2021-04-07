@@ -41,16 +41,9 @@
         <a href="#vocabulary" class="no-underline hover:underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Vocabulary</a>
     </div>
 
-
-@if(isset($listen_mode) && !empty($listen_mode))
             @include('admin.entity.exam.mode.list-listen')
-    @endif
-    @if(isset($vocabulary_mode) && !empty($vocabulary_mode))
             @include('admin.entity.exam.mode.list-vocabulary')
-    @endif
-    @if(isset($read_mode) && !empty($read_mode))
             @include('admin.entity.exam.mode.list-read')
-    @endif
 
     <button wire:click.prevent="store()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
 </form>

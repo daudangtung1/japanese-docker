@@ -24,29 +24,22 @@
             max-width: 1280px;
         }
     </style>
+    @livewireScripts
+
 </head>
 <body>
 
-<livewire:guest.header/>
-@livewireScripts
-@include('layouts.header')
+{{--<livewire:guest.header/>--}}
+{{--@include('layouts.header')--}}
 <main>
     {{ $slot }}
 </main>
 @include('layouts.footer')
+
 <script src="{{asset('js/lib/jquery-3.2.1.min.js')}}"></script>
 <script src="{{asset('js/lib/slick.min.js')}}"></script>
 <script src="{{asset('js/guest.js')}}"></script>
-<script type="text/javascript">
-    // jQuery(document).ready(function () {
-    //     $(".slider").hide();
-    // });
-    // jQuery(function () {
-    //     jQuery('.showSingle').click(function () {
-    //         jQuery('.slider').hide('.cnt');
-    //         jQuery('#div' + $(this).attr('target')).slideToggle();
-    //     });
-    // });
-</script>
+@livewireScripts
+
 </body>
 </html>

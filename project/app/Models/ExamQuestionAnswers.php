@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ExamCategory;
 
 class ExamQuestionAnswers extends Model
 {
@@ -35,9 +36,15 @@ class ExamQuestionAnswers extends Model
         'exam_category_id'
     ];
 
+//    protected $primaryKey = 'id';
+
 //    protected $primaryKey = 'ID';
 
 //    protected $attributes = [
 //        'meta_exam' => 'module',
 //    ];
+    public function category()
+    {
+        return $this->belongsTo(ExamCategory::class,'exam_category_id');
+    }
 }
