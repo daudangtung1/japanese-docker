@@ -46,9 +46,10 @@ class ListExam extends Component
     public $exam_category_id;
     public $exam_id;
 
-    const EXAMLISTEN = 3;
+    //file config
+    const EXAMLISTEN = 1;
     const EXAMREAD = 1;
-    const EXAMVOCABULARY = 2;
+    const EXAMVOCABULARY = 1;
 
     public function render()
     {

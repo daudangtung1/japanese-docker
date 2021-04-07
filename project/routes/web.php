@@ -50,5 +50,5 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->group(function () {
     Route::get('/admin/preview/{slug}', [PreviewExam::class, 'showPre'])->name('admin.preview');
     Route::get('/admin/dashboard/exam-category', function () {return view('admin.exam-category');})->name('admin.exam-category');
     Route::get('/admin/banner', function (){return view('livewire.admin.banner.banner');})->name('admin.banner');
-    Route::get('/admin/dashboard/generate-pdf', [PDFController::class, 'generatePDF']);
+    Route::get('/admin/dashboard/preview/generate-pdf/{slug}', [PDFController::class, 'generatePDF'])->name('admin-exam-preview');
 });
