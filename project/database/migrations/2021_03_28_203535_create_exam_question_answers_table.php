@@ -16,7 +16,7 @@ class CreateExamQuestionAnswersTable extends Migration
         Schema::create('exam_question_answers', function (Blueprint $table) {
             $table->id();
             $table->string('exam_code')->unique();
-            $table->foreignId('exam_category_id')->nullable();
+            // $table->foreignId('exam_category_id')->nullable();
             $table->string('listen_question_exam');
             $table->string('listen_correct_exam');
             $table->json('listen_answers_exam');

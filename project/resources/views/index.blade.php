@@ -322,4 +322,97 @@
             </div>
         </div>
     </section>
+
+    <!--slider-->
+    <section class="bg-blue-100">
+        <div class="menu">
+            <a class="showSingle" target="1">Div 1</a>
+            <a class="showSingle" target="2">Div 2</a>
+        </div>
+        <div class="cnt">
+            <div class="first-item slider" id="div1">
+                <div class="bg-white border-rounded mx-4 px-4 text-center py-4 rounded-lg">
+                    <p class="title mx-4 ">N3+ N2 + N1 1</p>
+                    <p class="price ">100</p>
+                    <p class="jp-price mb-10">10</p>
+                    <a href="" class="rounded-lg bg-blue-300 text-white px-2 py-1">Mua ngay</a>
+                </div>
+                <div class="bg-white border-rounded mx-4 px-4 text-center py-4 rounded-lg">
+                    <p class="title mx-4 ">N3+ N2 + N1 1</p>
+                    <p class="price ">100</p>
+                    <p class="jp-price mb-10">10</p>
+                    <a href="" class="rounded-lg bg-blue-300 text-white px-2 py-1">Mua ngay</a>
+                </div>
+                <div class="bg-white border-rounded mx-4 px-4 text-center py-4 rounded-lg">
+                    <p class="title mx-4 ">N3+ N2 + N1 1</p>
+                    <p class="price ">100</p>
+                    <p class="jp-price mb-10">10</p>
+                    <a href="" class="rounded-lg bg-blue-300 text-white px-2 py-1">Mua ngay</a>
+                </div>
+                <div class="bg-white border-rounded mx-4 px-4 text-center py-4 rounded-lg">
+                    <p class="title mx-4 ">N3+ N2 + N1 1</p>
+                    <p class="price ">100</p>
+                    <p class="jp-price mb-10">10</p>
+                    <a href="" class="rounded-lg bg-blue-300 text-white px-2 py-1">Mua ngay</a>
+                </div>
+                <div class="bg-white border-rounded mx-4 px-4 text-center py-4 rounded-lg">
+                    <p class="title mx-4 ">N3+ N2 + N1 1</p>
+                    <p class="price ">100</p>
+                    <p class="jp-price mb-10">10</p>
+                    <a href="" class="rounded-lg bg-blue-300 text-white px-2 py-1">Mua ngay</a>
+                </div>
+                <div class="bg-white border-rounded mx-4 px-4 text-center py-4 rounded-lg">
+                    <p class="title mx-4 ">N3+ N2 + N1 1</p>
+                    <p class="price ">100</p>
+                    <p class="jp-price mb-10">10</p>
+                    <a href="" class="rounded-lg bg-blue-300 text-white px-2 py-1">Mua ngay</a>
+                </div>
+                <div class="bg-white border-rounded mx-4 px-4 text-center py-4 rounded-lg">
+                    <p class="title mx-4 ">N3+ N2 + N1 1</p>
+                    <p class="price ">100</p>
+                    <p class="jp-price mb-10">10</p>
+                    <a href="" class="rounded-lg bg-blue-300 text-white px-2 py-1">Mua ngay</a>
+                </div>
+                <div class="bg-white border-rounded mx-4 px-4 text-center py-4 rounded-lg">
+                    <p class="title mx-4 ">N3+ N2 + N1 1</p>
+                    <p class="price ">100</p>
+                    <p class="jp-price mb-10">10</p>
+                    <a href="" class="rounded-lg bg-blue-300 text-white px-2 py-1">Mua ngay</a>
+                </div>
+            </div>
+            <div class="second-item slider" id="div2">
+                <div class="bg-white border-rounded mx-4 px-4 text-center py-4 rounded-lg">
+                    <p class="title mx-4 ">N3+ N2 + N1 1</p>
+                    <p class="price ">100</p>
+                    <p class="jp-price mb-10">10</p>
+                    <a href="" class="rounded-lg bg-blue-300 text-white px-2 py-1">Mua ngay</a>
+                </div>
+                <div class="bg-white border-rounded mx-4 px-4 text-center py-4 rounded-lg">
+                    <p class="title mx-4 ">N3+ N2 + N1 1</p>
+                    <p class="price ">100</p>
+                    <p class="jp-price mb-10">10</p>
+                    <a href="" class="rounded-lg bg-blue-300 text-white px-2 py-1">Mua ngay</a>
+                </div>
+                <div class="bg-white border-rounded mx-4 px-4 text-center py-4 rounded-lg">
+                    <p class="title mx-4 ">N3+ N2 + N1 1</p>
+                    <p class="price ">100</p>
+                    <p class="jp-price mb-10">10</p>
+                    <a href="" class="rounded-lg bg-blue-300 text-white px-2 py-1">Mua ngay</a>
+                </div>
+                <div class="bg-white border-rounded mx-4 px-4 text-center py-4 rounded-lg">
+                    <p class="title mx-4 ">N3+ N2 + N1 1</p>
+                    <p class="price ">100</p>
+                    <p class="jp-price mb-10">10</p>
+                    <a href="" class="rounded-lg bg-blue-300 text-white px-2 py-1">Mua ngay</a>
+                </div>
+                <div class="bg-white border-rounded mx-4 px-4 text-center py-4 rounded-lg">
+                    <p class="title mx-4 ">N3+ N2 + N1 1</p>
+                    <p class="price ">100</p>
+                    <p class="jp-price mb-10">10</p>
+                    <a href="" class="rounded-lg bg-blue-300 text-white px-2 py-1">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end slide-->
 </x-guest-layout>

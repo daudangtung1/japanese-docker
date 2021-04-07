@@ -13,9 +13,11 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" type="text/css" href="{{'css/style.css'}}">
-
+    <link rel="stylesheet" type="text/css" href="{{asset('css/lib/slick.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/lib/slick-theme.css')}}">
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+
     <style>
         .container {
             margin: 0 auto;
@@ -32,5 +34,19 @@
     {{ $slot }}
 </main>
 @include('layouts.footer')
+<script src="{{asset('js/lib/jquery-3.2.1.min.js')}}"></script>
+<script src="{{asset('js/lib/slick.min.js')}}"></script>
+<script src="{{asset('js/guest.js')}}"></script>
+<script type="text/javascript">
+    // jQuery(document).ready(function () {
+    //     $(".slider").hide();
+    // });
+    // jQuery(function () {
+    //     jQuery('.showSingle').click(function () {
+    //         jQuery('.slider').hide('.cnt');
+    //         jQuery('#div' + $(this).attr('target')).slideToggle();
+    //     });
+    // });
+</script>
 </body>
 </html>
