@@ -182,7 +182,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/project/public/css/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/project/public/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -190,19 +190,19 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\docker\japanese\project\public\css\lib" />
-      <recent name="E:\docker\japanese\project\public\js\lib" />
-      <recent name="E:\docker\japanese\project\public\css" />
-      <recent name="E:\docker\japanese\project\public\js" />
-      <recent name="E:\docker\japanese\project\public\images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\docker\japanese\project\public\js\lib" />
       <recent name="E:\docker\japanese\project\resources\views\livewire\users" />
       <recent name="E:\docker\japanese\project\resources\views\user" />
       <recent name="E:\docker\japanese\project\public\font\font-awesome\lib" />
       <recent name="C:\Users\Admin\Desktop\docker\project" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\docker\japanese\project\public\images" />
+      <recent name="E:\docker\japanese\project\public\css\lib" />
+      <recent name="E:\docker\japanese\project\public\js\lib" />
+      <recent name="E:\docker\japanese\project\public\css" />
+      <recent name="E:\docker\japanese\project\public\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -269,7 +269,7 @@
       <workItem from="1617699624690" duration="6185000" />
       <workItem from="1617707839263" duration="4815000" />
       <workItem from="1617793503758" duration="9622000" />
-      <workItem from="1617877120866" duration="325000" />
+      <workItem from="1617877120866" duration="2184000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -28,11 +28,43 @@
             margin: 0 auto;
             max-width: 1280px;
         }
+
+        .h-36-r{
+            height: 36rem;
+        }
+
+        .slick-prev:before, .slick-next:before {
+            color:red !important;
+            height: 50px;
+            width: 50px;
+        }
+
+        .slick-prev{
+            left: 430px;
+            z-index: 9999;
+        }
+
+        .slick-next{
+            right: 430px;
+            z-index: 9999;
+        }
+
+        .slick-slide:not(.slick-current) {
+            opacity: 0.4;
+        }
+
+        .slick-prev:before{
+            content: '<'
+        }
+
+        .slick-next:before{
+            content: '>';
+        }
     </style>
 </head>
 <body>
 
-{{--<livewire:guest.header/>--}}
+<livewire:guest.header/>
 {{--@include('layouts.header')--}}
 <main>
     {{ $slot }}

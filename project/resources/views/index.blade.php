@@ -1,4 +1,21 @@
 <x-guest-layout>
+    <section class="banner-index py-16">
+        <div class="banner--head relative">
+            <div class=" w-full h-36-r mx-4">
+                <img src="images/wallpaper1.jpg" alt="" class="w-full h-full object-cover max-w-full h-full rounded-lg">
+            </div>
+            <div class=" w-full h-36-r mx-4">
+                <img src="images/wallpaper2.jpg" alt="" class="w-full h-full object-cover max-w-full h-full rounded-lg">
+            </div>
+            <div class="w-full h-36-r mx-4">
+                <img src="images/wallpaper3.jpg" alt="" class="w-full h-full object-cover max-w-full h-full rounded-lg">
+            </div>
+            <div class=" w-full h-36-r mx-4">
+                <img src="images/wallpaper4.jpg" alt="" class="w-full h-full object-cover max-w-full h-full rounded-lg">
+            </div>
+        </div>
+    </section>
+
     <section class="pt-16 relative h-screen" style="max-height: 860px">
         <div class="container mx-auto items-center flex flex-wrap">
             <div class="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
