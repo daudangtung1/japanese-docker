@@ -36,60 +36,16 @@
                 </div>
             </div>
         </div>
-        <img src="{{'images//ill_header_3.png'}}"
-             class="absolute top-0 bottom-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12" alt=""
-             style="max-height: 860px">
+{{--        <img src="{{'images//ill_header_3.png'}}"--}}
+{{--             class="absolute top-0 bottom-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12" alt=""--}}
+{{--             style="max-height: 860px">--}}
         <div class="h-36 bg-blue-100 absolute -bottom-40 left-0 right-0"
              style="clip-path: polygon(100% 60%, 0% 100%, 100% 100%)">
         </div>
     </section>
-    <section class="mt-40 relative">
-        <div class="bg-blue-100">
-            <div class="container">
-                <div class="flex flex-wrap items-center ">
-                    <div class="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-32 ">
-                        <div class="relative text-white">
-                            <img src="{{'images/photo-1498050108023-c5249f4df085.jpg'}}" alt=""
-                                 class="rounded-t-lg w-full ">
-                            <div class="absolute bg-pink-500 left-0 right-0"
-                                 style="height: 95px; clip-path: polygon(100% 76%, 0% 100%, 100% 100%); top: 168px">
-                            </div>
-                            <blockquote class="p-8 mb-4 bg-pink-500 rounded-b-lg">
-                                <h4 class="text-xl font-bold text-white">Great for your awesome project</h4>
-                                <p>Putting together a page has never been easier than matching together pre-made
-                                    components. From landing pages presentation to login areas, you can easily customise
-                                    and built your pages</p>
-                            </blockquote>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-6/12 px-4">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="">
-                                <h6 class="text-xl mb-1 font-semibold">CSS Components</h6>
-                                <p class="mb-4 text-blueGray-500">Tailwind Starter Kit comes with a huge number of Fully
-                                    Coded CSS components.</p>
-                            </div>
-                            <div class="">
-                                <h6 class="text-xl mb-1 font-semibold">JavaScript Components</h6>
-                                <p class="mb-4 text-blueGray-500">We also feature many dynamic components for React, Vue
-                                    and Angular.</p>
-                            </div>
-                            <div class="">
-                                <h6 class="text-xl mb-1 font-semibold">Pages</h6>
-                                <p class="mb-4 text-blueGray-500">This extension also comes with 3 sample pages. They
-                                    are fully coded so you can start working instantly.</p>
-                            </div>
-                            <div class="">
-                                <h6 class="text-xl mb-1 font-semibold">Documentation</h6>
-                                <p class="mb-4 text-blueGray-500">Built by developers for developers. You will love how
-                                    easy is to to work with Tailwind Starter Kit.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+    <livewire:frontend.components.box-exam-user />
+
     <section class="bg-blue-100 pb-40 relative">
         <div class="justify-center flex flex-wrap">
             <div class="flex flex-wrap items-center container">
@@ -160,8 +116,6 @@
                         </a>
                         <a href="">
                             <div class="bg-gray-700 shadow-lg rounded-lg text-center p-8 mt-8">
-                                <img src="{{'images//svelte.jpg'}}" alt=""
-                                     class="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white">
                                 <p class="text-lg text-white mt-4 font-semibold">Svelte</p>
                             </div>
                         </a>
