@@ -21,10 +21,7 @@
     <script src="{{asset('js/lib/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('js/lib/slick.min.js')}}"></script>
     <script src="{{asset('js/guest.js')}}"></script>
-<<<<<<< Updated upstream
     @livewireScripts
-=======
->>>>>>> Stashed changes
 
     <style>
         .container {
