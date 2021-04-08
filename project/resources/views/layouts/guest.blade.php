@@ -15,8 +15,13 @@
     <link rel="stylesheet" type="text/css" href="{{'css/style.css'}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/lib/slick.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/lib/slick-theme.css')}}">
+
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{asset('js/lib/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('js/lib/slick.min.js')}}"></script>
+    <script src="{{asset('js/guest.js')}}"></script>
+    @livewireScripts
 
     <style>
         .container {
@@ -24,8 +29,6 @@
             max-width: 1280px;
         }
     </style>
-    @livewireScripts
-
 </head>
 <body>
 
@@ -36,10 +39,7 @@
 </main>
 @include('layouts.footer')
 
-<script src="{{asset('js/lib/jquery-3.2.1.min.js')}}"></script>
-<script src="{{asset('js/lib/slick.min.js')}}"></script>
-<script src="{{asset('js/guest.js')}}"></script>
-@livewireScripts
 
+@livewireScripts
 </body>
 </html>
