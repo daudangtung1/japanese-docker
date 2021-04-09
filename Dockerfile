@@ -46,6 +46,7 @@ RUN if [ $WITH_XDEBUG = "true" ] ; then \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
+RUN apt-get install ca-certificates
 # Copy existing application directory contents
 
 # Create system user to run Composer and Artisan Commands

@@ -46,7 +46,7 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->group(function () {
 
 //    Route::get('/admin/send', [NotificationController::class,'sendNotification']);
 
-    Route::get('/admin/send', [NotificationController::class,'sendNotification']);
+//    Route::get('/admin/send', [NotificationController::class,'sendNotification']);
     Route::get('/admin/dashboard/exam', function () {return view('admin.list-exam');})->name('admin.exam');
     Route::get('/admin/preview/{slug}', [PreviewExam::class, 'showPre'])->name('admin.preview');
     Route::get('/admin/dashboard/exam-category', function () {return view('admin.exam-category');})->name('admin.exam-category');
@@ -55,4 +55,14 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->group(function () {
 });
 
 Route::get('/exam-test',  [FrontendExamController::class, 'index'])->name('exam-detail');
+
+Route::get('/getPusher', function (){
+    return view('form_pusher');
+})->name('form_pusher');
+
+Route::get('/pusher', function(Illuminate\Http\Request $request) {
+    event(new App\Events\RealTimeMessage($request));
+    return redirect('getPusher');
+});
+
 

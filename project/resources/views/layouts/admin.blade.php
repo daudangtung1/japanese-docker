@@ -10,14 +10,55 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 {{--    <link rel="stylesheet" href="{{ asset('css/tailwind.css')}}">--}}
     <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
     @livewireScripts
 </head>
 <body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Demo App</a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown dropdown-notifications">
+                    <a href="#notifications-panel" class="dropdown-toggle" data-toggle="dropdown">
+                        <i data-count="0" class="glyphicon glyphicon-bell notification-icon"></i>
+                    </a>
+
+                    <div class="dropdown-container">
+                        <div class="dropdown-toolbar">
+                            <div class="dropdown-toolbar-actions">
+                                <a href="#">Mark all as read</a>
+                            </div>
+                            <h3 class="dropdown-toolbar-title">Notifications (<span class="notif-count">0</span>)</h3>
+                        </div>
+                        <ul class="dropdown-menu">
+                        </ul>
+                        <div class="dropdown-footer text-center">
+                            <a href="#">View All</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#">Timeline</a></li>
+                <li><a href="#">Friends</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
     <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
         <!-- Loading screen -->
@@ -291,8 +332,13 @@
             <livewire:admin.header-menu/>
 
             <!-- Main content -->
-
+            <h1>Pusher Test</h1>
+            <p>
+                Try publishing an event to channel <code>my-channel</code>
+                with event name <code>my-event</code>.
+            </p>
             <main>
+                <div class="event-notification-box fixed right-0 top-0 text-white bg-green-400 mt-3 mr-3 px-5 py-3 rounded-sm shadow-lg transform duration-700 opacity-0"></div>
                 {{ $slot }}
             </main>
 
@@ -317,5 +363,71 @@
 @livewireScripts
 <script src="{{asset('js/script.js')}}"></script>
 <script src="{{asset('js/color-admin.js')}}"></script>
+<script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript">
+    var notificationsWrapper   = $('.dropdown-notifications');
+    var notificationsToggle    = notificationsWrapper.find('a[data-toggle]');
+    var notificationsCountElem = notificationsToggle.find('i[data-count]');
+    var notificationsCount     = parseInt(notificationsCountElem.data('count'));
+    var notifications          = notificationsWrapper.find('ul.dropdown-menu');
+
+    if (notificationsCount <= 0) {
+        notificationsWrapper.hide();
+    }
+
+    //Thay giá trị PUSHER_APP_KEY vào chỗ xxx này nhé
+    var pusher = new Pusher('ae63fcff498ab9be7975', {
+        encrypted: true,
+        cluster: "ap1"
+    });
+
+    // Subscribe to the channel we specified in our Laravel Event
+    var channel = pusher.subscribe('real-time-message');
+
+    // Bind a function to a Event (the full Laravel class)
+    channel.bind('App\\Events\\RealTimeMessage', function(data) {
+        var existingNotifications = notifications.html();
+        var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
+        var newNotificationHtml = `
+          <li class="notification active">
+              <div class="media">
+                <div class="media-left">
+                  <div class="media-object">
+                    <img src="https://api.adorable.io/avatars/71/`+avatar+`.png" class="img-circle" alt="50x50" style="width: 50px; height: 50px;">
+                  </div>
+                </div>
+                <div class="media-body">
+                  <strong class="notification-title">`+data.message+`</strong>
+                  <!--p class="notification-desc">Extra description can go here</p-->
+                  <div class="notification-meta">
+                    <small class="timestamp">about a minute ago</small>
+                  </div>
+                </div>
+              </div>
+          </li>
+        `;
+        notifications.html(newNotificationHtml + existingNotifications);
+
+        notificationsCount += 1;
+        notificationsCountElem.attr('data-count', notificationsCount);
+        notificationsWrapper.find('.notif-count').text(notificationsCount);
+        notificationsWrapper.show();
+    });
+</script>
+{{--<script type="text/javascript">--}}
+
+
+{{--    var url = window.location.host; // hàm trả về url của trang hiện tại kèm theo port--}}
+{{--    var ws = new WebSocket('ws://127.0.0.1:3000'); // mở 1 websocket với port 8000--}}
+{{--    // console.log('connecting...')--}}
+{{--    ws.onopen = function() //khi websocket được mở thì hàm này sẽ được thưc hiện--}}
+{{--    {--}}
+{{--        document.getElementById('status').innerHTML = 'Connected';--}}
+{{--        led.disabled = false; //khi websocket được mở, mới cho phép--}}
+{{--        console.log('connected...')--}}
+{{--    };--}}
+{{--</script>--}}
 </body>
 </html>

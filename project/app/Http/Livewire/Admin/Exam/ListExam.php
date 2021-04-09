@@ -158,4 +158,24 @@ class ListExam extends Component
 //        $this->resetInputFields();
     }
 
+    public function statusExam($id)
+    {
+        $current_exam = ExamQuestionAnswers::findOrFail($id);
+        if (!$current_exam->status){
+            $current_exam->update([
+                'status' => true,
+            ]);
+        }else
+            $current_exam->update([
+                'status' => false,
+            ]);
+    }
+
+    public function dispatchEvent()
+    {
+        $this->dispatchBrowserEvent('event-notification', [
+            'eventName' => 'Sample Event',
+            'eventMessage' => 'You have a sample event notification!',
+        ]);
+    }
 }

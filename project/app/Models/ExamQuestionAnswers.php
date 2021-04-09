@@ -33,7 +33,8 @@ class ExamQuestionAnswers extends Model
         'vocabulary_answers_exam',
         'vocabulary_question_exam',
         'vocabulary_correct_exam',
-        'exam_category_id'
+        'exam_category_id',
+        'status'
     ];
 
 //    protected $primaryKey = 'id';
@@ -46,5 +47,14 @@ class ExamQuestionAnswers extends Model
     public function category()
     {
         return $this->belongsTo(ExamCategory::class,'exam_category_id');
+    }
+
+    public function getIsStatusAttribute($value)
+    {
+        if ($this->status === 0) {
+            echo 'private';
+        }else{
+            echo 'publish';
+        }
     }
 }

@@ -72,38 +72,23 @@
                                                     @endif
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-{{--                                                <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">--}}
-{{--                                                    <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>--}}
-{{--                                                    <span class="relative text-xs">active</span>--}}
-{{--                                                </span>--}}
-{{--                                                    <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">--}}
-{{--                                                    <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>--}}
-{{--                                                    <span class="relative text-xs">active</span>--}}
-{{--                                                </span>--}}
-{{--                                                    <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">--}}
-{{--                                                    <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>--}}
-{{--                                                    <span class="relative text-xs">not active</span>--}}
-{{--                                                </span>--}}
-                                                <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
                                                     @if(isset($exam_item->meta_exam['module']))
-                                                    {{ $exam_item->meta_exam['module']['exam_category'] }}
+                                                        {{ $exam_item->meta_exam['module']['exam_category'] }}
                                                         @endif
                                                 </td>
-{{--                                                <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">--}}
-{{--                                                    <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">--}}
-{{--                                                    <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>--}}
-{{--                                                    <span class="relative text-xs">active</span>--}}
-{{--                                                </span>--}}
-{{--                                                </td>--}}
                                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">September 12</td>
                                                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
                                                     <a href="{{ route('admin-exam-preview', $exam_item->exam_code)  }}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none" target="_blank">Preview</a>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
+                                                    <button wire:click="statusExam({{ $exam_item->id }})"  class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+                                                        {{$exam_item->is_status}}</button>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
                                                     <button wire:click="edit({{ $exam_item->id }})"  class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Edit</button>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                                    <button wire:click="delete({{ $exam_item->exam_code }})" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Delete</button>
+                                                    <button wire:click="dispatchEvent()" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Delete</button>
                                                 </td>
                                             </tr>
                                         @endforeach
