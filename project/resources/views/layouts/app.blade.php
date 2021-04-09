@@ -11,7 +11,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
+    <script src="{{ asset('js/app.js') }}"></script>
     <!-- Scripts -->
     @livewireStyles
 </head>
@@ -32,6 +32,7 @@
 
 <!-- Page Content -->
     <main>
+        <div class="event-notification-box fixed right-0 top-0 text-white bg-green-400 mt-3 mr-3 px-5 py-3 rounded-sm shadow-lg transform duration-700 opacity-0"></div>
         {{ $slot }}
     </main>
 </div>
@@ -39,4 +40,9 @@
 @stack('modals')
 @livewireScripts
 </body>
+<script>
+    window.addEventListener('event-notification', event => {
+        alert('Event', event.detail.eventName)
+    });
+</script>
 </html>
