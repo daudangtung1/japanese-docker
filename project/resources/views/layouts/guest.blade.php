@@ -23,6 +23,7 @@
 
     <script src="{{asset('js/guest.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 
     @livewireScripts
 
@@ -66,7 +67,7 @@
         }
     </style>
 </head>
-<body>
+<body class="antialiased bg-gray-200 font-sans" >
 
 <livewire:guest.header/>
 <livewire:guest.banner/>

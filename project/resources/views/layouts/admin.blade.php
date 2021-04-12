@@ -365,6 +365,7 @@
 <script src="{{asset('js/color-admin.js')}}"></script>
 <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 
 <script type="text/javascript">
     var notificationsWrapper   = $('.dropdown-notifications');
