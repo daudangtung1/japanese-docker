@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ExamQuestionAnswers;
 
 class ExamCategory extends Model
 {
@@ -18,4 +19,10 @@ class ExamCategory extends Model
     ];
 
     protected $primaryKey = 'id';
+
+    public function exam()
+    {
+        return $this->hasMany(ExamQuestionAnswers::class);
+    }
+
 }

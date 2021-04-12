@@ -10,7 +10,6 @@ class FrontendExamController extends Controller
 {
     public function index()
     {
-//        $projects = ExamQuestionAnswers::latest()->paginate(5);
         return view('exam-detail');
     }
 }
