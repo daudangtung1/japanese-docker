@@ -1,4 +1,3 @@
-
 <x-guest-layout>
     <section class="w-full">
         <div class="container mx-auto">

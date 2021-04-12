@@ -9,7 +9,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $exams=Exam::all();
-        return view('index', compact('exams'));
+//        $exams=Exam::all();
+        return view('index');
     }
 }
