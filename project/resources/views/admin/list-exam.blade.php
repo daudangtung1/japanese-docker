@@ -1,3 +1,3 @@
 <x-admin-layout>
-        <livewire:admin.exam.list-exam />
+    <livewire:admin.exam.list-exam/>
 </x-admin-layout>

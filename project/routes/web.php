@@ -6,10 +6,11 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\IndexController;
 use App\Http\Livewire\Users;
 use App\Http\Livewire\Exams;
-use App\Http\Livewire\Admin\Banner\Banner;
+//use App\Http\Livewire\Admin\Banner\Banner;
 use App\Http\Livewire\Admin\Components\PreviewExam;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\Frontend\Exam\FrontendExamController;
+use App\Http\Livewire\Admin\Banner;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,8 +51,8 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->group(function () {
     Route::get('/admin/dashboard/exam', function () {return view('admin.list-exam');})->name('admin.exam');
     Route::get('/admin/preview/{slug}', [PreviewExam::class, 'showPre'])->name('admin.preview');
     Route::get('/admin/dashboard/exam-category', function () {return view('admin.exam-category');})->name('admin.exam-category');
-    Route::get('/admin/banner', function (){return view('livewire.admin.banner.banner');})->name('admin.banner');
     Route::get('/admin/dashboard/preview/generate-pdf/{slug}', [PDFController::class, 'generatePDF'])->name('admin-exam-preview');
+    Route::get('/admin/dashboard/banner', function (){return view('admin.banner');})->name('banner');
 });
 
 Route::get('/exam-test',  [FrontendExamController::class, 'index'])->name('exam-detail');

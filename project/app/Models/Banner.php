@@ -9,12 +9,13 @@ class Banner extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'image'
-    ];
+//    protected $casts = [
+//        'banner' => 'array',
+//    ];
 
-    public function setFilenameAttribute($value)
-    {
-        $this->attributes['image'] = json_encode($value);
-    }
+    protected $fillable = [
+        'image',
+        'title',
+        'caption',
+    ];
 }

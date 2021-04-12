@@ -56,7 +56,7 @@ class ListExam extends Component
         $status_exam = $this->status_exam;
         $exam_categories = ExamCategory::all();
         $exam_pagination = ExamQuestionAnswers::orderBy('created_at', 'DESC')->paginate(4);
-
+        dd($exam_pagination);
         return view('admin.entity.exam.list-exam',
          [
              'exam_category' => $exam_categories,

@@ -1,4 +1,3 @@
 <x-admin-layout>
-    <x-admin-index/>
+    <livewire:admin.banner/>
 </x-admin-layout>
-

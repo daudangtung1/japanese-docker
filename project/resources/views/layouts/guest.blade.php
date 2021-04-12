@@ -69,11 +69,11 @@
 <body>
 
 <livewire:guest.header/>
-
+<livewire:guest.banner/>
 {{--@include('layouts.header')--}}
 <main>
     <div class="event-notification-box fixed right-0 top-0 text-white bg-green-400 mt-3 mr-3 px-5 py-3 rounded-sm shadow-lg transform duration-700 opacity-0"></div>
-    {{ $slot }}
+{{--    {{ $slot }}--}}
 </main>
 @include('layouts.footer')
 <script src="{{asset('js/guest.js')}}"></script>
