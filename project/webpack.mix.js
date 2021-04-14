@@ -17,6 +17,7 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'),
         require('autoprefixer'),
     ]);
+mix.copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts');
 
 if (mix.inProduction()) {
     mix.version();

@@ -39,7 +39,7 @@ class ExamList extends Component
 
     public function returnHomePage()
     {
-        dd(1);
+//        dd(1);
         $this->updateMode = false;
     }
 

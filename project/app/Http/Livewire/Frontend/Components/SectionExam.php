@@ -20,6 +20,10 @@ class SectionExam extends Component
     public $exam_total_items;
     public $updateModeDetail = false;
     public $updateModeNotification = false;
+    public $updateReadModeDetail = false;
+    public $updateListenModeDetail = false;
+    public $updateVocabularyModeDetail = false;
+
 
     public function render()
     {
@@ -48,11 +52,35 @@ class SectionExam extends Component
     public function detailDisLayHomePage($id)
     {
         $this->updateModeDetail = true;
-        dd(1);
         $exam_detail = ExamQuestionAnswers::find($id);
         $this->exam_total_items = $exam_detail;
         $this->answers_listen = $exam_detail->listen_answers_exam;
         $this->answers_read = $exam_detail-> read_answers_exam;
+        $this->answers_vocabulary = $exam_detail-> vocabulary_answers_exam;
+    }
+
+    public function detailDisLayListenPage($id)
+    {
+
+//        dd(1);
+        $this->updateListenModeDetail = true;
+        $exam_detail = ExamQuestionAnswers::find($id);
+        $this->exam_total_items = $exam_detail;
+        $this->answers_listen = $exam_detail->listen_answers_exam;
+    }
+    public function detailDisLayReadPage($id)
+    {
+        $this->updateReadModeDetail = true;
+        $exam_detail = ExamQuestionAnswers::find($id);
+        $this->exam_total_items = $exam_detail;
+        $this->answers_read = $exam_detail-> read_answers_exam;
+    }
+    public function detailDisLayVocabularyPage($id)
+    {
+//        dd(1);
+        $this->updateVocabularyModeDetail = true;
+        $exam_detail = ExamQuestionAnswers::find($id);
+        $this->exam_total_items = $exam_detail;
         $this->answers_vocabulary = $exam_detail-> vocabulary_answers_exam;
     }
 

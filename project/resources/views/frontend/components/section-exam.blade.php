@@ -1,8 +1,13 @@
 @if($updateModeDetail)
     @include('components.exam-home-page')
+@elseif($updateReadModeDetail)
+        @include('frontend.exam.exam-question-read')
+@elseif($updateListenModeDetail)
+    @include('frontend.exam.exam-question-answer-listen')
+@elseif($updateVocabularyModeDetail)
+    @include('frontend.exam.exam-question-answer-vocabulary')
 @elseif($updateModeNotification)
         @include('frontend.element.notification-exam')
-{{--    @elseif($updateModeNotification)--}}
 @endif
 <section>
     <div x-data="{ cartOpen: false , isOpen: false }" class="bg-white">
@@ -98,9 +103,137 @@
             <span class="mt-3 text-sm text-gray-500">Số Lượng : {{ $count_exam }}</span>
             <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
                 @foreach($exam_detail as $items)
-                <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
-                    <div class="flex items-end justify-end h-56 w-full bg-cover" style="background-image: url('https://images.unsplash.com/photo-1495856458515-0637185db551?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')">
-                        <button wire:click = "detailDisLayNotification()" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden " x-data="{ 'isDialogOpen': false },{ openTab: 1 }"
+                     @keydown.escape="isDialogOpen = false" >
+                    <div
+                        class="overflow-auto"
+                        style="background-color: rgba(0,0,0,0.5)"
+                        x-show="isDialogOpen"
+                        :class="{ 'absolute inset-0 z-10 flex items-start justify-center': isDialogOpen }"
+                    >
+                        <!-- dialog -->
+                        <div
+                            class="bg-white shadow-2xl m-4 sm:m-8"
+                            x-show="isDialogOpen"
+                            @click.away="isDialogOpen = false"
+                        >
+                            <div class="flex justify-between items-center border-b p-2 text-xl">
+                                <h6 class="text-xl font-bold">Simple modal dialog</h6>
+                                <button type="button" @click="isDialogOpen = false" >✖</button>
+                            </div>
+                            <div class="p-2">
+                                <div
+                                    class="overflow-auto"
+                                    style="background-color: rgba(0,0,0,0.5)"
+                                    x-show="isDialogOpen"
+                                    :class="{ 'absolute inset-0 z-10 flex items-start justify-center': isDialogOpen }"
+                                >
+                                    <!-- dialog -->
+                                    <div
+                                        class="bg-white shadow-2xl m-4 sm:m-8"
+                                        x-show="isDialogOpen"
+                                        @click.away="isDialogOpen = false"
+                                    >
+
+                                        <div class="p-2">
+                                            <img src="images/de-thi-jlpt-n1.jpg" alt="">
+                                            <!-- content -->
+                                            <div
+                                                x-data="{
+                                                      openTab: 1,
+                                                      activeClasses: 'border-l border-t border-r rounded-t text-blue-700',
+                                                      inactiveClasses: 'text-blue-500 hover:text-blue-800'
+                                                                }"
+                                                class="p-6"
+                                            >
+                                                <ul class="flex border-b">
+                                                    <li @click="openTab = 1" :class="{ '-mb-px': openTab === 1 }" class="-mb-px mr-1">
+                                                        <a :class="openTab === 1 ? activeClasses : inactiveClasses" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="#">
+                                                            Cả Bộ
+                                                        </a>
+                                                    </li>
+                                                    <li @click="openTab = 2" :class="{ '-mb-px': openTab === 2 }" class="mr-1">
+                                                        <a :class="openTab === 2 ? activeClasses : inactiveClasses" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="#">
+                                                            Phần Từ Vựng,Ngữ Pháp
+                                                        </a>
+                                                    </li>
+                                                    <li @click="openTab = 3" :class="{ '-mb-px': openTab === 3 }" class="mr-1">
+                                                        <a :class="openTab === 3 ? activeClasses : inactiveClasses" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="#">
+                                                            Phần Nghe
+                                                        </a>
+                                                    </li>
+                                                    <li @click="openTab = 4" :class="{ '-mb-px': openTab === 4 }" class="mr-1">
+                                                        <a :class="openTab === 4 ? activeClasses : inactiveClasses" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="#">
+                                                            Phần Đọc
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                    <aside class="max-w-lg mt-4 p-4 bg-yellow-100 border border-yellow-500">
+                                                        <ul class="bg-blue-200 border border-blue-900 m-8 px-4">
+                                                            <div class="w-full pt-4">
+                                                                <div x-show="openTab === 1">
+                                                                    <li><i class="fas fa-clock"></i>Thời Gian: 150p</li>
+                                                                    <li><i class="fas fa-headphones"></i>Cả Bộ </li>
+                                                                    <li><i class="fas fa-headphones"></i>Phần Nghe </li>
+                                                                    <li><i class="fab fa-adn"></i>Phần Từ Vựng Ngữ Pháp</li>
+                                                                    <li><i class="fas fa-book-open"></i>Phần Đọc</li>
+                                                                        <button wire:click="detailDisLayHomePage('{{$items->id}}')" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                                                                            NEXT
+                                                                        </button>
+                                                                </div>
+                                                                <div x-show="openTab === 2">
+                                                                    <li><i class="fas fa-clock"></i>Thời Gian: 40p</li>
+                                                                    <li><i class="fas fa-headphones"></i>Phần Nghe </li>
+                                                                    <button wire:click="detailDisLayListenPage('{{$items->id}}')" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                                                                        NEXT
+                                                                    </button>
+                                                                </div>
+                                                                <div x-show="openTab === 3">
+                                                                    <li><i class="fas fa-clock"></i>Thời Gian: 40p</li>
+                                                                    <li><i class="fab fa-adn"></i>Phần Từ Vựng Ngữ Pháp</li>
+                                                                    <button wire:click="detailDisLayVocabularyPage('{{$items->id}}')" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                                                                        NEXT
+                                                                    </button>
+                                                                </div>
+                                                                <div x-show="openTab === 4">
+                                                                        <li><i class="fas fa-clock"></i>Thời Gian: 90p</li>
+                                                                        <li><i class="fas fa-book-open"></i>Phần Đọc</li>
+                                                                    <button wire:click="detailDisLayReadPage('{{$items->id}}')" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                                                                        NEXT
+                                                                    </button>
+                                                                    </div>
+                                                                </div>
+{{--                                                            <div x-show="openTab === 4">--}}
+{{--                                                                <li><i class="fas fa-clock"></i>Thời Gian: 90p</li>--}}
+{{--                                                                <li><i class="fas fa-book-open"></i>Cả Bộ </li>--}}
+{{--                                                                <button wire:click="detailDisLayHomePage('{{$items->id}}')" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">--}}
+{{--                                                                    NEXT--}}
+{{--                                                                </button>--}}
+{{--                                                            </div>--}}
+                                                        </ul>
+                                                    </aside>
+                                                <img src="images/607681ac1acf2.png" alt="" width="80px">
+                                            </div>
+                                        </div>
+                                    </div><!-- /dialog -->
+                                </div><!-- /overlay -->
+                                <div class="flex items-end justify-end h-56 w-full bg-cover">
+                                    <button @click="isDialogOpen = true" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                                        CHI TIẾT :
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                                        </svg> GO
+                                    </button>
+                                </div>
+                                <div class="px-5 py-3">
+                                    <h3 class="text-gray-700 uppercase">Mã Đề: {{ $items->exam_code }}</h3>
+                                    <span class="text-gray-500 mt-2">Thời Gian : 130 phút </span>
+                                </div>
+                            </div>
+                        </div><!-- /dialog -->
+                    </div><!-- /overlay -->
+                    <div class="flex items-end justify-end h-56 w-full bg-cover" style="background-image: url('images/de-thi-jlpt-n1.jpg')">
+                        <button @click="isDialogOpen = true" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
                             CHI TIẾT :
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
@@ -154,3 +287,4 @@
         </div>
     </div>
 </section>
+
