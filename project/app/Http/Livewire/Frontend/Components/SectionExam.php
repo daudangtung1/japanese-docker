@@ -23,14 +23,18 @@ class SectionExam extends Component
     public $updateReadModeDetail = false;
     public $updateListenModeDetail = false;
     public $updateVocabularyModeDetail = false;
+    public $count_category = 0;
+    public $category_detail ;
 
 
     public function render()
     {
         $exam_categories = ExamCategory::all();
         $exam_detail = ExamQuestionAnswers::paginate(4);
+//        dd($exam_detail);
         $previous_page = $this->page;
         $count = ExamQuestionAnswers::all()->count();
+//        dd($count);
         return view('frontend.components.section-exam', [
                 'exam_categories' => $exam_categories,
                 'exam_detail' => $exam_detail,
@@ -62,7 +66,6 @@ class SectionExam extends Component
     public function detailDisLayListenPage($id)
     {
 
-//        dd(1);
         $this->updateListenModeDetail = true;
         $exam_detail = ExamQuestionAnswers::find($id);
         $this->exam_total_items = $exam_detail;
@@ -77,7 +80,6 @@ class SectionExam extends Component
     }
     public function detailDisLayVocabularyPage($id)
     {
-//        dd(1);
         $this->updateVocabularyModeDetail = true;
         $exam_detail = ExamQuestionAnswers::find($id);
         $this->exam_total_items = $exam_detail;
@@ -86,7 +88,6 @@ class SectionExam extends Component
 
     public function detailDisLayNotification()
     {
-//        dd(1);
         $this->updateModeNotification = true;
     }
 
@@ -94,12 +95,19 @@ class SectionExam extends Component
 
     public function returnHomePage()
     {
-
-//        dd( $this->updateMode);
-//dd(1);
         $this->updateModeNotification = true;
+    }
 
-//        dd( $this->updateMode);
+    public function getItemsCategory($id)
+    {
+        $query_category = ExamQuestionAnswers::where(['exam_category_id' => $id]);
+//        dd($query_category);
+        $this->count_category = $query_category->count();
+        $this->category_detail = $query_category->paginate(4);
+//        dd($this->category_detail);
+//        dd($count_category);
+//        dd($count_category);
+//        dd($query_category);
     }
 }
 

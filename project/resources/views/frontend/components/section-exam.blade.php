@@ -10,19 +10,26 @@
         @include('frontend.element.notification-exam')
 @endif
 <section>
-    <div x-data="{ cartOpen: false , isOpen: false }" class="bg-white">
+    <div class="bg-white">
         <div class="bg-blue-600">
             <div class="container mx-auto">
-                <div class="flex py-16 items-center ">
-                    <div class="text-white bg-blue-700 rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">All </div>
-                    @foreach($exam_categories as $exam_category )
-                        <div class="text-blue-700  bg-white rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">{{$exam_category->exam_categories}}</div>
-                    @endforeach
+                <div class="flex py-16 items-center " x-data="{ allItems: true , isCategories: false }">
+                    <button  class="text-white bg-blue-700 rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">All </button>
+                    @if(isset($exam_categories))
+                        @foreach($exam_categories as $key => $exam_category )
+                                <button wire:click ="getItemsCategory({{ $exam_category->id }})" class="text-blue-700  bg-white rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">{{$exam_category->exam_categories}}</button>
+                        @endforeach
+                    @endif
                     <input class="text-blue-700  bg-white rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl" type="text" placeholder="Search">
                 </div>
             </div>
         </div>
-        <div :class="cartOpen ? 'translate-x-0 ease-out' : 'translate-x-full ease-in'" class="fixed right-0 top-0 max-w-xs w-full h-full px-6 py-4 transition duration-300 transform overflow-y-auto bg-white border-l-2 border-gray-300">
+        <div>
+
+        </div>
+        <div class="fixed right-0 top-0 max-w-xs w-full h-full px-6 py-4 transition duration-300 transform overflow-y-auto bg-white border-l-2 border-gray-300"
+        @scroll.window ="cartOpen = (window.pageYOffset > 100) ? true : false "
+        >
         <div class="flex items-center justify-between">
             <h3 class="text-2xl font-medium text-gray-700">Your cart</h3>
             <button @click="cartOpen = !cartOpen" class="text-gray-600 focus:outline-none">
@@ -100,7 +107,7 @@
     <div class="my-8">
         <div class="container mx-auto px-6">
             <h3 class="text-gray-700 text-2xl font-medium">Đề Thi Các Năm </h3>
-            <span class="mt-3 text-sm text-gray-500">Số Lượng : {{ $count_exam }}</span>
+            <span class="mt-3 text-sm text-gray-500">Số Lượng : {{ $count_category }}</span>
             <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
                 @foreach($exam_detail as $items)
                 <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden " x-data="{ 'isDialogOpen': false },{ openTab: 1 }"
@@ -203,13 +210,6 @@
                                                                     </button>
                                                                     </div>
                                                                 </div>
-{{--                                                            <div x-show="openTab === 4">--}}
-{{--                                                                <li><i class="fas fa-clock"></i>Thời Gian: 90p</li>--}}
-{{--                                                                <li><i class="fas fa-book-open"></i>Cả Bộ </li>--}}
-{{--                                                                <button wire:click="detailDisLayHomePage('{{$items->id}}')" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">--}}
-{{--                                                                    NEXT--}}
-{{--                                                                </button>--}}
-{{--                                                            </div>--}}
                                                         </ul>
                                                     </aside>
                                                 <img src="images/607681ac1acf2.png" alt="" width="80px">
@@ -282,7 +282,6 @@
                                 </div>
                             </button>
                         </div>
-{{--                @endif()--}}
             </div>
         </div>
     </div>
