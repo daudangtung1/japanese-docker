@@ -24,20 +24,23 @@ class SectionExam extends Component
     public $updateListenModeDetail = false;
     public $updateVocabularyModeDetail = false;
     public $count_category = 0;
-    public $category_detail ;
-
+    public $caterory;
 
     public function render()
     {
+
+        if($this->caterory == '')
+            $exam_detail = ExamQuestionAnswers::latest()->paginate(4);
+        else if($this->caterory)
+            $exam_detail = ExamQuestionAnswers::where(['exam_category_id' => $this->caterory])->latest()->paginate(4);
+
         $exam_categories = ExamCategory::all();
-        $exam_detail = ExamQuestionAnswers::paginate(4);
-//        dd($exam_detail);
         $previous_page = $this->page;
         $count = ExamQuestionAnswers::all()->count();
-//        dd($count);
+
         return view('frontend.components.section-exam', [
                 'exam_categories' => $exam_categories,
-                'exam_detail' => $exam_detail,
+                'exam_detail' =>  $exam_detail,
                 'count_exam' => $count,
                 'previous_page' =>$previous_page,
         ]);
@@ -100,14 +103,7 @@ class SectionExam extends Component
 
     public function getItemsCategory($id)
     {
-        $query_category = ExamQuestionAnswers::where(['exam_category_id' => $id]);
-//        dd($query_category);
-        $this->count_category = $query_category->count();
-        $this->category_detail = $query_category->paginate(4);
-//        dd($this->category_detail);
-//        dd($count_category);
-//        dd($count_category);
-//        dd($query_category);
+         $this->caterory = $id;
     }
 }
 
