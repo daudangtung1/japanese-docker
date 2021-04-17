@@ -66,4 +66,7 @@ Route::get('/pusher', function(Illuminate\Http\Request $request) {
     return redirect('getPusher');
 });
 
+Route::get('/exam-test/{id}', [PreviewExam::class, 'showPre'])->name('frontend.list-exam');
+
+
 

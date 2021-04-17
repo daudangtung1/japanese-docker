@@ -9,6 +9,7 @@
 @elseif($updateModeNotification)
         @include('frontend.element.notification-exam')
 @endif
+
 <section>
     <div class="bg-white">
         <div class="bg-blue-600">
@@ -17,7 +18,8 @@
                     <button  class="text-white bg-blue-700 rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">All </button>
                     @if(isset($exam_categories))
                         @foreach($exam_categories as $key => $exam_category )
-                                <button wire:click ="getItemsCategory({{ $exam_category->id }})" class="text-blue-700  bg-white rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">{{$exam_category->exam_categories}}</button>
+                            <button wire:click ="getItemsCategory({{ $exam_category->id }})" class="text-blue-700  bg-white rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">{{$exam_category->exam_categories}}</button>
+{{--                            <a href="{{ route('frontend.list-exam', $exam_category->id ) }}"  class="text-blue-700  bg-white rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">{{$exam_category->exam_categories}}</a>--}}
                         @endforeach
                     @endif
                     <input class="text-blue-700  bg-white rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl" type="text" placeholder="Search">
@@ -108,8 +110,12 @@
         <div class="container mx-auto px-6">
             <h3 class="text-gray-700 text-2xl font-medium">Đề Thi Các Năm </h3>
             <span class="mt-3 text-sm text-gray-500">Số Lượng : {{ $count_category }}</span>
+{{--            <livewire:frontend.components.detail-exam :id= "{{ $exam_category->id }}" />--}}
             <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
                 @foreach($exam_detail as $items)
+<!--                    --><?php
+//                    var_dump($items);
+//                    ?>
                 <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden " x-data="{ 'isDialogOpen': false },{ openTab: 1 }"
                      @keydown.escape="isDialogOpen = false" >
                     <div
@@ -249,7 +255,6 @@
             </div>
             <div class="w-full mx-auto">
                 <div class="sm:grid grid-cols-4 gap-5 mx-auto px-16">
-{{--                    @if()--}}
                         <div class="col-start-1 col-end-3 my-2">
                             <button wire:click = "previousPage()">
                                 <div
