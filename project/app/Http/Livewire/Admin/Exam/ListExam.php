@@ -47,16 +47,15 @@ class ListExam extends Component
     public $exam_id;
 
     //file config
-    const EXAMLISTEN = 1;
-    const EXAMREAD = 1;
-    const EXAMVOCABULARY = 1;
+    const EXAMLISTEN = 2;
+    const EXAMREAD = 2;
+    const EXAMVOCABULARY = 2;
 
     public function render()
     {
         $status_exam = $this->status_exam;
         $exam_categories = ExamCategory::all();
         $exam_pagination = ExamQuestionAnswers::orderBy('created_at', 'DESC')->paginate(4);
-//        dd($exam_pagination);
         return view('admin.entity.exam.list-exam',
          [
              'exam_category' => $exam_categories,
@@ -178,4 +177,5 @@ class ListExam extends Component
             'eventMessage' => 'You have a sample event notification!',
         ]);
     }
+
 }

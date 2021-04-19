@@ -19,7 +19,7 @@ class CreateExamQuestionAnswersTable extends Migration
 
             // $table->foreignId('exam_category_id')->nullable();
 
-            $table->foreignId('exam_category_id')->nullable()->index();;
+            $table->foreignId('exam_category_id')->nullable()->index();
             $table->json('listen_question_exam');
             $table->json('listen_correct_exam');
 

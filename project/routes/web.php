@@ -7,10 +7,12 @@ use App\Http\Controllers\IndexController;
 use App\Http\Livewire\Users;
 use App\Http\Livewire\Exams;
 //use App\Http\Livewire\Admin\Banner\Banner;
-use App\Http\Livewire\Admin\Components\PreviewExam;
+//use App\Http\Livewire\Admin\Components\PreviewExam;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\Frontend\Exam\FrontendExamController;
 use App\Http\Livewire\Admin\Banner;
+use App\Http\Controllers\ExamTestController;
+use App\Http\Livewire\Frontend\Exam\ExamDetail;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,13 +51,14 @@ Route::middleware(['auth:sanctum', 'verified','admin'])->group(function () {
 
 //    Route::get('/admin/send', [NotificationController::class,'sendNotification']);
     Route::get('/admin/dashboard/exam', function () {return view('admin.list-exam');})->name('admin.exam');
-    Route::get('/admin/preview/{slug}', [PreviewExam::class, 'showPre'])->name('admin.preview');
+//    Route::get('/admin/preview/{slug}', [PreviewExam::class, 'showPre'])->name('admin.preview');
     Route::get('/admin/dashboard/exam-category', function () {return view('admin.exam-category');})->name('admin.exam-category');
     Route::get('/admin/dashboard/preview/generate-pdf/{slug}', [PDFController::class, 'generatePDF'])->name('admin-exam-preview');
     Route::get('/admin/dashboard/banner', function (){return view('admin.banner');})->name('banner');
 });
 
 Route::get('/exam-test',  [FrontendExamController::class, 'index'])->name('exam-detail');
+Route::get('/exam-test/{ids}/{status}',  [ExamDetail::class, 'render'])->name('exam-detail-display');
 
 Route::get('/getPusher', function (){
     return view('form_pusher');
@@ -65,8 +68,6 @@ Route::get('/pusher', function(Illuminate\Http\Request $request) {
     event(new App\Events\RealTimeMessage($request));
     return redirect('getPusher');
 });
-
-Route::get('/exam-test/{id}', [PreviewExam::class, 'showPre'])->name('frontend.list-exam');
 
 
 
