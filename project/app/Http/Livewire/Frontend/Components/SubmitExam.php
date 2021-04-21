@@ -17,6 +17,7 @@ class SubmitExam extends Component
     public $answers_read = [];
     public $answers_vocabulary =[];
     public $exam_question;
+    public $user_answers_discorrect;
 
     public function mount($ids , $status)
     {
@@ -30,6 +31,8 @@ class SubmitExam extends Component
         $current_status = $this->status;
         $current_id = $this->ids;
         $exam_questions =  ExamQuestionAnswers::find($current_id);
+        $exam_category = $exam_questions->category->exam_categories;
+
         switch ($current_status) {
             case 2:
                 $answers_listens = $exam_questions->listen_answers_exam;
@@ -59,6 +62,7 @@ class SubmitExam extends Component
         return view('frontend.components.submit-exam', [
             'ids' => $current_id,
             'current_status' => $current_status,
+            'exam_category' => $exam_category,
             'exam_questions' => $exam_questions,
             'answers_listens' => $answers_listens,
             'answers_vocabularys' => $answers_vocabularys,
@@ -68,7 +72,7 @@ class SubmitExam extends Component
 
     public function submit()
     {
-
+//        dd(1);
         $current_status = $this->status;
 //        $start_exam = Carbon::now();
         $exam_question_answers_ids = $this->ids;
@@ -79,19 +83,25 @@ class SubmitExam extends Component
             case 2:
                 $listen_correct_exam = $current_exam_question_answers->listen_correct_exam;
                 $user_answers_listen = $this->answers_listen;
-                $user_answers_correct = count(array_diff( $user_answers_listen , $listen_correct_exam ));
+                $user_answers_discorrect = count(array_diff( $user_answers_listen , $listen_correct_exam ));
+                $user_answers_read = '';
+                $user_answers_vocabulary = '';
 
                 break;
             case 3:
                 $read_correct_exam = $current_exam_question_answers->read_correct_exam;
                 $user_answers_read = $this->answers_read;
-                $user_answers_correct = count(array_diff( $user_answers_read , $read_correct_exam ));
+                $user_answers_discorrect = count(array_diff( $user_answers_read , $read_correct_exam ));
+                $user_answers_listen = '';
+                $user_answers_vocabulary = '';
 
                 break;
             case 4:
                 $vocabulary_correct_exam = $current_exam_question_answers->vocabulary_correct_exam;
                 $user_answers_vocabulary = $this->answers_vocabulary;
-                $user_answers_correct = count(array_diff( $user_answers_vocabulary , $vocabulary_correct_exam ));
+                $user_answers_discorrect = count(array_diff( $user_answers_vocabulary , $vocabulary_correct_exam ));
+                $user_answers_listen = '';
+                $user_answers_read = '';
 
                 break;
 
@@ -120,5 +130,8 @@ class SubmitExam extends Component
             'user_answers_discorrect' => $user_answers_discorrect,
 //            'start_exam' => $start_exam
         ]);
+
+        $this->emit('user_answers_discorrect:submit', $user_answers_discorrect);
+
     }
 }

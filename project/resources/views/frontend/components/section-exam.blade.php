@@ -1,21 +1,172 @@
-@if($updateModeDetail)
-    @include('components.exam-home-page')
-@elseif($updateReadModeDetail)
-        @include('frontend.exam.exam-question-read')
-@elseif($updateListenModeDetail)
-    @include('frontend.exam.exam-question-answer-listen')
-@elseif($updateVocabularyModeDetail)
-    @include('frontend.exam.exam-question-answer-vocabulary')
-@elseif($updateModeNotification)
-        @include('frontend.element.notification-exam')
-@endif
+<main class="text-white flex items-center justify-center" x-data="carouselFilter()">
+    <div class="container grid grid-cols-1">
+        <div class="flex py-12 justify-center">
+            <a class="px-2 text-lg uppercase font-bold tracking-widest hover:text-white" :class="{ 'text-gray-800': active != 0 }" href="#" @click.prevent="changeActive(0)">Fruit</a>
+            <a class="px-2 text-lg uppercase font-bold tracking-widest hover:text-white" :class="{ 'text-gray-700': active != 1 }" href="#" @click.prevent="changeActive(1)">People</a>
+        </div>
+
+        <div class="row-start-2 col-start-1"
+             x-show="active == 0"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 transform scale-90"
+             x-transition:enter-end="opacity-100 transform scale-100"
+             x-transition:leave="transition ease-in duration-300"
+             x-transition:leave-start="opacity-100 transform scale-100"
+             x-transition:leave-end="opacity-0 transform scale-90"
+        >
+            <div class="grid grid-cols-1 grid-rows-1" x-data="carousel()" x-init="init()">
+                <div class="col-start-1 row-start-1 relative z-20 flex items-center justify-center pointer-events-none">
+
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 0"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Dragon Fruit</h1>
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 1"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Avocado</h1>
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 2"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Mango</h1>
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 3"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Orange</h1>
+                </div>
+
+
+                <div class="carousel col-start-1 row-start-1" x-ref="carousel">
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1581375221876-8f287f7cd2cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1581375279144-bb3b381c7046?ixlib=rb-1.2.1&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1581375303816-4a17124934f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row-start-2 col-start-1"
+             x-show="active == 1"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 transform scale-90"
+             x-transition:enter-end="opacity-100 transform scale-100"
+             x-transition:leave="transition ease-in duration-300"
+             x-transition:leave-start="opacity-100 transform scale-100"
+             x-transition:leave-end="opacity-0 transform scale-90"
+        >
+            <div class="grid grid-cols-1 grid-rows-1" x-data="carousel()" x-init="init()">
+                <div class="col-start-1 row-start-1 relative z-20 flex items-center justify-center pointer-events-none">
+
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 0"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Beth</h1>
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 1"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Lee</h1>
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 2"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Jade</h1>
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 3"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Drew</h1>
+                </div>
+
+
+                <div class="carousel col-start-1 row-start-1" x-ref="carousel">
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1462804993656-fac4ff489837?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
 
 <section>
     <div class="bg-gray-300">
         <div class="bg-blue-600">
-            <div class="container mx-auto">
+            <div class="container mx-auto px-6">
                 <div class="flex py-16 items-center " x-data="{ allItems: true , isCategories: false }">
-                    <button wire:click.prevent = "getAllItemsCategory('')" class="text-white bg-blue-700 rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">All </button>
+                    <a wire:click.prevent = "getAllItemsCategory('')" class="text-white bg-blue-700 rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">All </a>
                     @if(isset($exam_categories))
                         @foreach($exam_categories as $key => $exam_category )
                             <button wire:click.prevent ="getItemsCategory({{ $exam_category->id }})" class="text-blue-700  bg-white rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">{{$exam_category->exam_categories}}</button>
@@ -118,35 +269,13 @@
                 @foreach($exam_detail as $items)
                 <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden " x-data="{ 'isDialogOpen': false },{ openTab: 1 }"
                      @keydown.escape="isDialogOpen = false" >
-                    <div
-                        class="overflow-auto"
-                        style="background-color: rgba(0,0,0,0.5)"
-                        x-show="isDialogOpen"
-                        :class="{ 'absolute inset-0 z-10 flex items-start justify-center': isDialogOpen }"
-                    >
+                    <div class="overflow-auto" style="background-color: rgba(0,0,0,0.5)" x-show="isDialogOpen" :class="{ 'absolute inset-0 z-10 flex items-start justify-center': isDialogOpen }">
                         <!-- dialog -->
-                        <div
-                            class="bg-white shadow-2xl m-4 sm:m-8"
-                            x-show="isDialogOpen"
-                            @click.away="isDialogOpen = false"
-                        >
-                            <div class="flex justify-between items-center border-b p-2 text-xl">
-                                <h6 class="text-xl font-bold">Simple modal dialog</h6>
-                                <button type="button" @click="isDialogOpen = false" >✖</button>
-                            </div>
+                        <div class="bg-white shadow-2xl m-4 sm:m-8" x-show="isDialogOpen" @click.away="isDialogOpen = false">
                             <div class="p-2">
-                                <div
-                                    class="overflow-auto"
-                                    style="background-color: rgba(0,0,0,0.5)"
-                                    x-show="isDialogOpen"
-                                    :class="{ 'absolute inset-0 z-10 flex items-start justify-center': isDialogOpen }"
-                                >
+                                <div class="overflow-auto" style="background-color: rgba(0,0,0,0.5)" x-show="isDialogOpen" :class="{ 'absolute inset-0 z-10 flex items-start justify-center': isDialogOpen }">
                                     <!-- dialog -->
-                                    <div
-                                        class="bg-white shadow-2xl m-4 sm:m-8"
-                                        x-show="isDialogOpen"
-                                        @click.away="isDialogOpen = false"
-                                    >
+                                    <div class="bg-white shadow-2xl m-4 sm:m-8" x-show="isDialogOpen" @click.away="isDialogOpen = false">
 
                                         <div class="p-2">
                                             <img src="images/de-thi-jlpt-n1.jpg" alt="">
@@ -215,7 +344,7 @@
                                                                         NEXT
                                                                     </a>
                                                                     </div>
-                                                                </div>
+                                                            </div>
                                                         </ul>
                                                     </aside>
                                                 <img src="images/607681ac1acf2.png" alt="" width="80px">
