@@ -1,25 +1,175 @@
-@if($updateModeDetail)
-    @include('components.exam-home-page')
-@elseif($updateReadModeDetail)
-        @include('frontend.exam.exam-question-read')
-@elseif($updateListenModeDetail)
-    @include('frontend.exam.exam-question-answer-listen')
-@elseif($updateVocabularyModeDetail)
-    @include('frontend.exam.exam-question-answer-vocabulary')
-@elseif($updateModeNotification)
-        @include('frontend.element.notification-exam')
-@endif
+<main class="text-white flex items-center justify-center" x-data="carouselFilter()">
+    <div class="container grid grid-cols-1">
+        <div class="flex py-12 justify-center">
+            <a class="px-2 text-lg uppercase font-bold tracking-widest hover:text-white" :class="{ 'text-gray-800': active != 0 }" href="#" @click.prevent="changeActive(0)">Fruit</a>
+            <a class="px-2 text-lg uppercase font-bold tracking-widest hover:text-white" :class="{ 'text-gray-700': active != 1 }" href="#" @click.prevent="changeActive(1)">People</a>
+        </div>
+
+        <div class="row-start-2 col-start-1"
+             x-show="active == 0"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 transform scale-90"
+             x-transition:enter-end="opacity-100 transform scale-100"
+             x-transition:leave="transition ease-in duration-300"
+             x-transition:leave-start="opacity-100 transform scale-100"
+             x-transition:leave-end="opacity-0 transform scale-90"
+        >
+            <div class="grid grid-cols-1 grid-rows-1" x-data="carousel()" x-init="init()">
+                <div class="col-start-1 row-start-1 relative z-20 flex items-center justify-center pointer-events-none">
+
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 0"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Dragon Fruit</h1>
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 1"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Avocado</h1>
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 2"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Mango</h1>
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 3"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Orange</h1>
+                </div>
+
+
+                <div class="carousel col-start-1 row-start-1" x-ref="carousel">
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1581375221876-8f287f7cd2cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1581375279144-bb3b381c7046?ixlib=rb-1.2.1&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1581375303816-4a17124934f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row-start-2 col-start-1"
+             x-show="active == 1"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 transform scale-90"
+             x-transition:enter-end="opacity-100 transform scale-100"
+             x-transition:leave="transition ease-in duration-300"
+             x-transition:leave-start="opacity-100 transform scale-100"
+             x-transition:leave-end="opacity-0 transform scale-90"
+        >
+            <div class="grid grid-cols-1 grid-rows-1" x-data="carousel()" x-init="init()">
+                <div class="col-start-1 row-start-1 relative z-20 flex items-center justify-center pointer-events-none">
+
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 0"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Beth</h1>
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 1"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Lee</h1>
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 2"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Jade</h1>
+                    <h1 class="absolute text-5xl uppercase font-black tracking-widest"
+                        x-show="active == 3"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform translate-y-12"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition ease-out duration-300"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform -translate-y-12"
+                    >Drew</h1>
+                </div>
+
+
+                <div class="carousel col-start-1 row-start-1" x-ref="carousel">
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1462804993656-fac4ff489837?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                    <div class="w-3/5 px-2">
+                        <img
+                            src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=770&q=80"
+                            loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
 
 <section>
-    <div class="bg-white">
+    <div class="bg-gray-300">
         <div class="bg-blue-600">
-            <div class="container mx-auto">
+            <div class="container mx-auto px-6">
                 <div class="flex py-16 items-center " x-data="{ allItems: true , isCategories: false }">
-                    <button  class="text-white bg-blue-700 rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">All </button>
+                    <a wire:click.prevent = "getAllItemsCategory('')" class="text-white bg-blue-700 rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">All </a>
                     @if(isset($exam_categories))
                         @foreach($exam_categories as $key => $exam_category )
-                            <button wire:click ="getItemsCategory({{ $exam_category->id }})" class="text-blue-700  bg-white rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">{{$exam_category->exam_categories}}</button>
-{{--                            <a href="{{ route('frontend.list-exam', $exam_category->id ) }}"  class="text-blue-700  bg-white rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">{{$exam_category->exam_categories}}</a>--}}
+                            <button wire:click.prevent ="getItemsCategory({{ $exam_category->id }})" class="text-blue-700  bg-white rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl">{{$exam_category->exam_categories}}</button>
                         @endforeach
                     @endif
                     <input class="text-blue-700  bg-white rounded-2xl shadow-lg px-20 py-4 mx-2 text-xl" type="text" placeholder="Search">
@@ -77,7 +227,7 @@
         </div>
         <div class="flex justify-between mt-6">
             <div class="flex">
-                <img class="h-20 w-20 object-cover rounded" src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80" alt="">
+                    <img class="h-20 w-20 object-cover rounded" src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80" alt="">
                 <div class="mx-3">
                     <h3 class="text-sm text-gray-600">Mac Book Pro</h3>
                     <div class="flex items-center mt-2">
@@ -109,44 +259,23 @@
     <div class="my-8">
         <div class="container mx-auto px-6">
             <h3 class="text-gray-700 text-2xl font-medium">Đề Thi Các Năm </h3>
-            <span class="mt-3 text-sm text-gray-500">Số Lượng : {{ $count_category }}</span>
-{{--            <livewire:frontend.components.detail-exam :id= "{{ $exam_category->id }}" />--}}
+            <span class="mt-3 text-sm text-gray-500">Số Lượng : @if($count_exam)
+                                                                    {{ $count_exam }}
+                                                                @elseif($count_exam_all)
+                                                                    {{ $count_exam_all }}
+                                                                @endif
+            </span>
             <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
                 @foreach($exam_detail as $items)
-<!--                    --><?php
-//                    var_dump($items);
-//                    ?>
                 <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden " x-data="{ 'isDialogOpen': false },{ openTab: 1 }"
                      @keydown.escape="isDialogOpen = false" >
-                    <div
-                        class="overflow-auto"
-                        style="background-color: rgba(0,0,0,0.5)"
-                        x-show="isDialogOpen"
-                        :class="{ 'absolute inset-0 z-10 flex items-start justify-center': isDialogOpen }"
-                    >
+                    <div class="overflow-auto" style="background-color: rgba(0,0,0,0.5)" x-show="isDialogOpen" :class="{ 'absolute inset-0 z-10 flex items-start justify-center': isDialogOpen }">
                         <!-- dialog -->
-                        <div
-                            class="bg-white shadow-2xl m-4 sm:m-8"
-                            x-show="isDialogOpen"
-                            @click.away="isDialogOpen = false"
-                        >
-                            <div class="flex justify-between items-center border-b p-2 text-xl">
-                                <h6 class="text-xl font-bold">Simple modal dialog</h6>
-                                <button type="button" @click="isDialogOpen = false" >✖</button>
-                            </div>
+                        <div class="bg-white shadow-2xl m-4 sm:m-8" x-show="isDialogOpen" @click.away="isDialogOpen = false">
                             <div class="p-2">
-                                <div
-                                    class="overflow-auto"
-                                    style="background-color: rgba(0,0,0,0.5)"
-                                    x-show="isDialogOpen"
-                                    :class="{ 'absolute inset-0 z-10 flex items-start justify-center': isDialogOpen }"
-                                >
+                                <div class="overflow-auto" style="background-color: rgba(0,0,0,0.5)" x-show="isDialogOpen" :class="{ 'absolute inset-0 z-10 flex items-start justify-center': isDialogOpen }">
                                     <!-- dialog -->
-                                    <div
-                                        class="bg-white shadow-2xl m-4 sm:m-8"
-                                        x-show="isDialogOpen"
-                                        @click.away="isDialogOpen = false"
-                                    >
+                                    <div class="bg-white shadow-2xl m-4 sm:m-8" x-show="isDialogOpen" @click.away="isDialogOpen = false">
 
                                         <div class="p-2">
                                             <img src="images/de-thi-jlpt-n1.jpg" alt="">
@@ -167,12 +296,12 @@
                                                     </li>
                                                     <li @click="openTab = 2" :class="{ '-mb-px': openTab === 2 }" class="mr-1">
                                                         <a :class="openTab === 2 ? activeClasses : inactiveClasses" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="#">
-                                                            Phần Từ Vựng,Ngữ Pháp
+                                                            Phần Nghe
                                                         </a>
                                                     </li>
                                                     <li @click="openTab = 3" :class="{ '-mb-px': openTab === 3 }" class="mr-1">
                                                         <a :class="openTab === 3 ? activeClasses : inactiveClasses" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" href="#">
-                                                            Phần Nghe
+                                                            Phần Từ Vựng,Ngữ Pháp
                                                         </a>
                                                     </li>
                                                     <li @click="openTab = 4" :class="{ '-mb-px': openTab === 4 }" class="mr-1">
@@ -190,32 +319,32 @@
                                                                     <li><i class="fas fa-headphones"></i>Phần Nghe </li>
                                                                     <li><i class="fab fa-adn"></i>Phần Từ Vựng Ngữ Pháp</li>
                                                                     <li><i class="fas fa-book-open"></i>Phần Đọc</li>
-                                                                        <button wire:click="detailDisLayHomePage('{{$items->id}}')" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                                                                        <a href="{{ route('exam-detail-display',[ App\Http\Livewire\Frontend\Components\SectionExam::DISPLAYTOTAL, $items->id] ) }}" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
                                                                             NEXT
-                                                                        </button>
+                                                                        </a>
                                                                 </div>
                                                                 <div x-show="openTab === 2">
                                                                     <li><i class="fas fa-clock"></i>Thời Gian: 40p</li>
                                                                     <li><i class="fas fa-headphones"></i>Phần Nghe </li>
-                                                                    <button wire:click="detailDisLayListenPage('{{$items->id}}')" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
-                                                                        NEXT
-                                                                    </button>
+                                                                        <a href="{{ route('exam-detail-display',[ App\Http\Livewire\Frontend\Components\SectionExam::DISPLAYEXAMLISTEN, $items->id] ) }}" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                                                                            NEXT
+                                                                        </a>
                                                                 </div>
                                                                 <div x-show="openTab === 3">
                                                                     <li><i class="fas fa-clock"></i>Thời Gian: 40p</li>
                                                                     <li><i class="fab fa-adn"></i>Phần Từ Vựng Ngữ Pháp</li>
-                                                                    <button wire:click="detailDisLayVocabularyPage('{{$items->id}}')" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                                                                    <a href="{{ route('exam-detail-display',[ App\Http\Livewire\Frontend\Components\SectionExam::DISPLAYEXAMVOCABULARY, $items->id] ) }}" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
                                                                         NEXT
-                                                                    </button>
+                                                                    </a>
                                                                 </div>
                                                                 <div x-show="openTab === 4">
                                                                         <li><i class="fas fa-clock"></i>Thời Gian: 90p</li>
                                                                         <li><i class="fas fa-book-open"></i>Phần Đọc</li>
-                                                                    <button wire:click="detailDisLayReadPage('{{$items->id}}')" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                                                                    <a href="{{ route('exam-detail-display',[ App\Http\Livewire\Frontend\Components\SectionExam::DISPLAYEXAMREAD, $items->id] ) }}" class="text-blue-500 bg-transparent border border-solid border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3  rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
                                                                         NEXT
-                                                                    </button>
+                                                                    </a>
                                                                     </div>
-                                                                </div>
+                                                            </div>
                                                         </ul>
                                                     </aside>
                                                 <img src="images/607681ac1acf2.png" alt="" width="80px">
@@ -256,7 +385,7 @@
             <div class="w-full mx-auto">
                 <div class="sm:grid grid-cols-4 gap-5 mx-auto px-16">
                         <div class="col-start-1 col-end-3 my-2">
-                            <button wire:click = "previousPage()">
+                            <button wire:click = "nextPage()">
                                 <div
                                     class="h-full p-6 dark:bg-gray-800 bg-white hover:shadow-xl rounded border-b-4 border-blue-500 shadow-md">
                                     <h3 class="text-2xl mb-3 font-semibold inline-flex">
@@ -265,18 +394,18 @@
                                             <path
                                                 d="M1.02698 11.9929L5.26242 16.2426L6.67902 14.8308L4.85766 13.0033L22.9731 13.0012L22.9728 11.0012L4.85309 11.0033L6.6886 9.17398L5.27677 7.75739L1.02698 11.9929Z"
                                                 fill="currentColor" /></svg>
-                                        Prev
+                                        Next
                                     </h3>
                                     <p class="text-lg">What is Lorem Ipsum?</p>
                                 </div>
                             </button>
                         </div>
                         <div class="col-end-5 col-span-2 my-2">
-                            <button wire:click = "nextPage()">
+                            <button wire:click = "resetPage()">
                                 <div
                                     class="h-full p-6 dark:bg-gray-800 bg-white hover:shadow-xl rounded border-b-4 border-blue-500 shadow-md text-right">
                                     <h3 class="text-2xl mb-3 font-semibold inline-flex ">
-                                        Next
+                                        Return
                                         <svg class="ml-2" width="24" height="30" viewBox="0 0 24 24" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
                                             <path

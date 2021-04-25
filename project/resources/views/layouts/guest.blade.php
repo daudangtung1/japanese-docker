@@ -20,11 +20,15 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="{{asset('js/lib/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('js/lib/slick.min.js')}}"></script>
-
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="{{asset('js/guest.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
     @livewireScripts
 
@@ -35,36 +39,8 @@
             max-width: 1280px;
         }
 
-        .h-36-r{
-            height: 36rem;
-        }
-
-        .slick-prev:before, .slick-next:before {
-            color:red !important;
-            height: 50px;
-            width: 50px;
-        }
-
-        .slick-prev{
-            left: 430px;
-            z-index: 9999;
-        }
-
-        .slick-next{
-            right: 430px;
-            z-index: 9999;
-        }
-
-        .slick-slide:not(.slick-current) {
-            opacity: 0.4;
-        }
-
-        .slick-prev:before{
-            content: '<'
-        }
-
-        .slick-next:before{
-            content: '>';
+        .flickity-viewport {
+            height: 500px !important;
         }
     </style>
 </head>
@@ -72,6 +48,18 @@
 
 <livewire:guest.header/>
 <livewire:guest.banner/>
+
+<main></main>
+
+
+
+
+
+
+
+
+
+
 {{--@include('layouts.header')--}}
 <main>
     <div class="event-notification-box fixed right-0 top-0 text-white bg-green-400 mt-3 mr-3 px-5 py-3 rounded-sm shadow-lg transform duration-700 opacity-0"></div>
@@ -79,10 +67,34 @@
 </main>
 @include('layouts.footer')
 <script src="{{asset('js/guest.js')}}"></script>
-</body>
 <script>
-    window.addEventListener('event-notification', event => {
-        alert('Event', event.detail.eventName)
-    });
+    function carousel() {
+        return {
+            active: 0,
+            init() {
+                var flkty = new Flickity(this.$refs.carousel, {
+                    wrapAround: true
+                });
+                flkty.on('change', i => this.active = i);
+            }
+        }
+    }
+
+    function carouselFilter() {
+        return {
+            active: 0,
+            changeActive(i) {
+                this.active = i;
+
+                this.$nextTick(() => {
+                    let flkty = Flickity.data( this.$el.querySelectorAll('.carousel')[i] );
+                    flkty.resize();
+
+                    console.log(flkty);
+                });
+            }
+        }
+    }
 </script>
+</body>
 </html>
